@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Paper Less</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+        <link rel="stylesheet" href="doctor.css">
+    </head>
+    <body onload="loading()">
+        <div id="body">
+            <div class="preloader" id="preloader">
+                <div class="preloader__ring">
+                    <div class="preloader__sector">L</div>
+                    <div class="preloader__sector">o</div>
+                    <div class="preloader__sector">a</div>
+                    <div class="preloader__sector">d</div>
+                    <div class="preloader__sector">i</div>
+                    <div class="preloader__sector">n</div>
+                    <div class="preloader__sector">g</div>
+                    <div class="preloader__sector">.</div>
+                    <div class="preloader__sector">.</div>
+                    <div class="preloader__sector">.</div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                </div>
+                <div class="preloader__ring">
+                    <div class="preloader__sector">P</div>
+                    <div class="preloader__sector">l</div>
+                    <div class="preloader__sector">e</div>
+                    <div class="preloader__sector">a</div>
+                    <div class="preloader__sector">s</div>
+                    <div class="preloader__sector">e</div>
+                    <div class="preloader__sector"> </div>
+                    <div class="preloader__sector">w</div>
+                    <div class="preloader__sector">a</div>
+                    <div class="preloader__sector">i</div>
+                    <div class="preloader__sector">t</div>
+                    <div class="preloader__sector">.</div>
+                    <div class="preloader__sector">.</div>
+                    <div class="preloader__sector">.</div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                    <div class="preloader__sector"></div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Doctor</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <button class="nav-link" style="background: transparent; border: none; outline: none;">Home <span class="sr-only">(current)</span></button>
+                    </li>
+                    <li class="nav-item active">
+                        <button style="background: transparent; border: none; outline: none;" onclick="logout()" class="nav-link">Logout</button>
+                    </li>
+                    <li class="nav-item active">
+                        <button style="background: transparent; border: none; outline: none;" onclick="location.reload()" class="nav-link">Reload</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="buttons" style=" width: 100%; height: 80vh; overflow: hidden; text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <button onclick="fetchAllData()" class="rainbow-button opd-button" alt="OPD"></button>
+            <br>
+            <button class="treatment-button rainbow-button" alt="Treatment"></button>
+        </div>
+        <div style="width: 100%; height: 100vh; background: #eff;" class="d-none" id="treatment">
+            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; overflow-x: hidden;">
+                <br>
+                <h4>Prescription</h4>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <button class="treatment-medicine-button rainbow-button" onclick="document.getElementById('prescriptionMedicine').classList.remove('d-none'); window.location = '#prescriptionMedicine';" alt="Prescription - Medicine"></button>
+                <br>
+                <button class="treatment-laboratory rainbow-button" onclick="document.getElementById('prescriptionLaboratory').classList.remove('d-none'); window.location = '#prescriptionLaboratory';" alt="Prescription- laboratory"></button>
+                <br>
+                <button class="treatment-imaginecenter rainbow-button" onclick="document.getElementById('prescriptionImagineCenter').classList.remove('d-none'); window.location = '#prescriptionImagineCenter';" alt="Prescription - ImagineCenter"></button>
+            </div>
+        </div>
+        <br><br>
+        <br>
+        <div style="width: 100%; height: 100vh; text-align: center; overflow-x: hidden;" class="d-none" id="prescriptionMedicine">
+            <br>
+            <h4>Prescription Medicine</h4>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="form form-field hid">
+                <label>
+                    <span>Please Enter Medicine and Others Things <br> Which should be send to Medical Store and Patient</span>
+                    <textarea id="prescriptionMedicineInput"></textarea>
+                </label>
+                <br>
+                <button onclick="prescriptionMedicineSend()" style="font-size: 15px; background: #0091EB; padding: 20px 40px; color: #fff;">Send</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div style="width: 100%; height: 100vh; text-align: center; overflow-x: hidden;" class="d-none" id="prescriptionLaboratory">
+            <br>
+            <h4>Prescription Laboratory</h4>
+            <br>
+            <br>
+            <div class="form form-field">
+                <label>
+                    <span><b>Please Enter Required Laboratory <br> Test Report Which should be send to Laboratory and Patient</b></span>
+                    <textarea id="prescriptionLaboratoryInput"></textarea>
+                </label>
+                <br>
+                <button onclick="prescriptionLaboratorySend()" style="font-size: 15px; background: #0091EB; padding: 20px 40px; color: #fff;">Send</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div style="width: 100%; height: 100vh; text-align: center; overflow-x: hidden;" class="d-none" id="prescriptionImagineCenter">
+            <br>
+            <h4>Prescription Imagine Center</h4>
+            <br>
+            <br>
+            <div class="form form-field">
+                <label>
+                    <span><b>Please Enter Required X-ray, CTScan <br> and Others Report Which should be send to Imagine Center and Patient</b></span>
+                    <textarea id="prescriptionImagineCenterInput"></textarea>
+                </label>
+                <br>
+                <button onclick="prescriptionImagineCenterSend()" style="font-size: 15px; background: #0091EB; padding: 20px 40px; color: #fff;">Send</button>
+            </div>
+        </div>
+        <div style="width: 100%; height: 100vh; background: #eee; overflow-x: hidden;" class="d-none" id="opd">
+            <ul style="border: 2px solid #eff;">
+                <h4>Appointment List</h4>
+                <br>
+                <li><h6 id="Name"></h6></li>
+                <li><h6 id="Phone"></h6></li>
+                <li><h6 id="Email"></h6></li>
+                <br>
+                <span class="button-take"></span>
+            </ul>
+        </div>
+        <div style="width: 100%; height: 100vh; overflow-x: hidden;" id="scheduleAppointmentPage" class="d-none">
+            <h4> Schedule An Appointment</h4>
+            <br>
+            <br>
+            <div style="text-align: center;" class="monday">
+                <h1>Monday</h1>
+                <button id="10monday" style="color: black; backgroung: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
+                <button id="1030monday" style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
+                <br>
+                <br>
+                <button id="11monday" style="color: black; backgroung: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
+                <button id="1130monday" style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
+                <br>
+                <br>
+                <button id="12monday" style="color: black; backgroung: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
+                <button id="1230monday" style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
+                <br>
+                <br>
+                <button id="1monday" style="color: black; backgroung: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
+                <button id="120monday" style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
+                <br>
+                <br>
+                <button id="2monday" style="color: black; backgroung: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
+                <button id="230monday" style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
+                <br>
+                <br>
+                <button id="3monday" style="color: black; backgroung: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
+                <button id="330monday" style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
+                <br>
+                <br>
+                <button id="4monday" style="color: black; backgroung: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
+            </div>
+            <br><br>
+            <div style="text-align: center;" class="Tuesday">
+                <h1>Tuesday</h1>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
+            </div>
+            <br><br>
+            <div style="text-align: center;" class="Wednesday">
+                <h1>Wednesday</h1>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
+            </div>
+            <br><br>
+            <div style="text-align: center;" class="Thursday">
+                <h1>Thursday</h1>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
+            </div>
+            <br><br>
+            <div style="text-align: center;" class="Friday">
+                <h1>Friday</h1>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
+            </div>
+            <br><br>
+            <div style="text-align: center;" class="Saturaday">
+                <h1>Saturaday</h1>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
+                <button style="color: black; backgroung: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
+                <br>
+                <br>
+                <button style="color: black; backgroung: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
+            </div>
+        </div>
+        <script src="doctor.js"></script>
+    </body>
+</html>
