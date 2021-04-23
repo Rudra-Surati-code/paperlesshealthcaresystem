@@ -7,7 +7,7 @@ function loading() {
    } else if(localStorage.getItem("person") == "patient") {
    		window.location = "patient.html";
    } else if(localStorage.getItem("person") == "laboratory") {
-      window.location = "laboratory.html";
+      window.location = "labotatory.html";
    } else if(localStorage.getItem("person") == "imaginecenter") {
       window.location = "imaginecenter.html";
    } else if(localStorage.getItem("person") == "medicalstore") {
