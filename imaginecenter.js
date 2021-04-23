@@ -33,10 +33,9 @@ function getData() {
       document.getElementById("ImagineCenterName").innerHTML = `These are the Reports and others things for ${childData.name}`;
     });
 });
-  firebase.database().ref("doctor/").child("/").on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      document.getElementById("ImagineCenterDName").innerHTML = `${childData.pic}`;
-    });
-});
+firebase.database().ref("doctor/").child("prescriptionImagineCenter").on('value', gotData);
+}
+
+function gotData(data) {
+    document.getElementById("ImagineCenterDName").innerHTML = data.val().pic;
 }

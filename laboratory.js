@@ -32,10 +32,9 @@ function getData() {
       document.getElementById("LaboratoryName").innerHTML = `These are the Reports and others things for ${childData.name}`;
     });
 });
-firebase.database().ref("doctor/").child("/").on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      document.getElementById("laboratoryDName").innerHTML = childData.pl;
-    });
-});
+firebase.database().ref("doctor/").child("prescriptionLaboratory").on('value', gotData);
+}
+
+function gotData(data) {
+    document.getElementById("laboratoryDName").innerHTML = data.val().pl;
 }
