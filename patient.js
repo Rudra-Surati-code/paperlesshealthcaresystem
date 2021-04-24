@@ -30,7 +30,6 @@ function logout() {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
 
 function phoneNumber() {
 	var phone = document.getElementById("phone").value;
@@ -66,8 +65,11 @@ window.location = '#report';
 
 function medicalReceipt() {
   document.getElementById('Receipt').classList.remove('d-none');
-firebase.database().ref("medicalcenter/").child("/").on('value', function(data){
-  document.getElementById("Receipt").src = data.val().receipt;
-});
+  firebase.database().ref("medicalcenter/").child("/").on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      document.getElementById("Recipit").src = `${childData.receipt}`;
+    });
+  });
   window.location = '#Receipt';
 }
