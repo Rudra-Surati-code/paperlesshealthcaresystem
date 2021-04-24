@@ -101,10 +101,12 @@
                     <li class="nav-item active">
                         <button onclick="logout()" class="nav-link">Logout</button>
                     </li>
+                    <li class="nav-item active">
+                        <button onclick="sendreceipt()" class="nav-link">Send Receipt</button>
+                    </li>
                 </ul>
             </div>
         </nav>
-
         <div class="home-page" style="width: 100%; height: 100vh; text-align: center; overflow: hidden;">
             <br>
             <h4 id="medecineStoreName"></h4>
@@ -117,6 +119,13 @@
             <br>
             <br>
             <h4 id="medenineName"> </h4>
+        </div>
+        <div style="width: 100%; height: 100vh; background: #eff; display: flex; justify-content: center; align-items: center" class="d-none" id="sendreceipt">
+            <div class="upload-btn-wrapper">
+  <button class="button5">Upload a Receipt Image in all image format</button>
+                <input type="file" id="inputFile" onchange="uploadReceipt(this);">
+            </div>
+            <div id="demo"></div>
         </div>
         <script src="medicalcenter.js"></script>
         

@@ -42,3 +42,27 @@ function getData() {
     });
 });
 }
+
+function sendreceipt() {
+   document.getElementById("sendreceipt").classList.remove("d-none");
+
+   window.location = "#sendreceipt";
+}
+
+function uploadReceipt() 
+{
+
+  const input = document.getElementById("inputFile");
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            firebase.database().ref("medicalcenter/").child("medicines").set({
+                receipt : reader.result
+            })
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}

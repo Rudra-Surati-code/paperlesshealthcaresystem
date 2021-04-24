@@ -63,3 +63,11 @@ firebase.database().ref("doctor/").on('value', function(snapshot) {
 });
 window.location = '#report';
 }
+
+function medicalReceipt() {
+  document.getElementById('Receipt').classList.remove('d-none');
+firebase.database().ref("medicalcenter/").child("/").on('value', function(data){
+  document.getElementById("Receipt").src = data.val().receipt;
+});
+  window.location = '#Receipt';
+}
