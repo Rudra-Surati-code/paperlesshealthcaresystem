@@ -325,7 +325,7 @@ menuitem > menu > menuitem.hover > menu > menuitem{
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400&display=swap');
 /** base styles **/
  .body1 {
-   height: 94.6vh;
+   height: 150vh;
    margin: 0;
    background: #eee;
    color: #333;

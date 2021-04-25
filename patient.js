@@ -73,3 +73,25 @@ function medicalReceipt() {
   });
   window.location = '#Receipt';
 }
+
+function labReport() {
+  document.getElementById("lbR").classList.remove("d-none");
+  firebase.database().ref("laboratatory/").child("/").on('value', function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+        document.getElementById("lbRImg").src = `${childData.laboratatoryReport}`;
+      });
+    });
+  window.location = "#lbR";
+}
+
+function IMReport() {
+  document.getElementById("icR").classList.remove("d-none");
+  firebase.database().ref("imaginecenter/").child("/").on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      document.getElementById("icRImgShow").src = `${childData.imaginecenterReport}`;
+    });
+  });
+  window.location = "#icR";
+}

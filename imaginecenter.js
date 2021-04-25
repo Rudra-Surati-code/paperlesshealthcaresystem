@@ -39,3 +39,31 @@ firebase.database().ref("doctor/").child("prescriptionImagineCenter").on('value'
 function gotData(data) {
     document.getElementById("ImagineCenterDName").innerHTML = data.val().pic;
 }
+
+function uploadImagineCenterReport() 
+{
+  const input = document.getElementById("inputFile");
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            firebase.database().ref("imaginecenter/").child("imaginecenterReport").set({
+                imaginecenterReport : reader.result
+            })
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function sendIMReport() {
+    document.getElementById("imagineCenterReport").classList.remove("d-none");
+    firebase.database().ref("imaginecenter/").child("/").on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val();
+          document.getElementById("imgShow").src = `${childData.imaginecenterReport}`;
+        });
+      });
+    window.location = "#imagineCenterReport";
+}
