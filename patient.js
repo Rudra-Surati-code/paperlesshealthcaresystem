@@ -90,7 +90,7 @@ function IMReport() {
   firebase.database().ref("imaginecenter/").child("/").on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-      document.getElementById("icRImgShow").src = `${childData.imaginecenterReport}`;
+      document.getElementById("icRImg").src = `${childData.imaginecenterReport}`;
     });
   });
   window.location = "#icR";
