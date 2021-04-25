@@ -45,7 +45,12 @@ function getData() {
 
 function sendreceipt() {
    document.getElementById("sendreceipt").classList.remove("d-none");
-
+   firebase.database().ref("medicalcenter/").child("/").on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      document.getElementById("imgShow").src = `${childData.receipt}`;
+    });
+  });
    window.location = "#sendreceipt";
 }
 
