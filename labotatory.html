@@ -109,6 +109,9 @@
                     <li class="nav-item active">
                         <button onclick="logout()" class="nav-link">Logout</button>
                     </li>
+                    <li class="nav-item active">
+                        <button onclick="sendLaboratatoryReport()" class="nav-link">Send Laboratory Report</button>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -125,6 +128,21 @@
             <br>
             <br>
             <h4 id="laboratoryDName"> </h4>
+        </div>
+
+        <div style="width: 100%; height: 100vh; overflow: hidden; text-align: center;" class="d-none" id="laboratoryReport">
+            <br>
+            <h4>Send Laboratory Report</h4>
+            <br>
+            <br>
+            <div class="upload-btn-wrapper">
+                <button class="button5">Upload a Laboratory Report Image in all image format</button>
+                <input type="file" id="inputFile" onchange="uploadLaboratoryReport(this);">
+                <br>
+                <br>
+                <br>
+                <img id="imgShow" src="" style="padding: 210px 90px; border: 1px solid orange;" alt="Laboratory Report Image">
+            </div>
         </div>
         <script src="laboratory.js"></script>
     

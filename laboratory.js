@@ -38,3 +38,31 @@ firebase.database().ref("doctor/").child("prescriptionLaboratory").on('value', g
 function gotData(data) {
     document.getElementById("laboratoryDName").innerHTML = data.val().pl;
 }
+
+function uploadLaboratoryReport() 
+{
+  const input = document.getElementById("inputFile");
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            firebase.database().ref("laboratatory/").child("laboratatoryReport").set({
+                laboratatoryReport : reader.result
+            })
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function sendLaboratatoryReport() {
+    document.getElementById("laboratoryReport").classList.remove("d-none");
+    firebase.database().ref("laboratatory/").child("/").on('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childData = childSnapshot.val();
+          document.getElementById("imgShow").src = `${childData.laboratatoryReport}`;
+        });
+      });
+    window.location = "#laboratoryReport";
+}
