@@ -10,7 +10,7 @@ function loading() {
    }
 }
 function logout() {
-  window.localStroge.clear();
+   window.localStorage.clear();
 
    window.location = "index.html";
 }
