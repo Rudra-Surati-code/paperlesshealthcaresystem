@@ -234,12 +234,23 @@ button {
   content:attr(alt);
   padding: 30px;
   width:190px;
-  height:40px;
+  height:50px;
   background-color:#191919;
   display:flex;
   align-items:center;
   justify-content:center;
 }
+
+/* .rainbow-button:after:nth-child(3) {
+  content:attr(alt);
+  padding: 30px;
+  width:190px;
+  height: 40px;
+  background-color:#191919;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+} */
 .rainbow-button:hover {
   animation:slidebg 2s linear infinite;
 }

@@ -10,7 +10,8 @@ function loading() {
    }
 }
 function logout() {
-   window.localStorage.clear();
+  window.localStorage.removeItem("name");
+  window.localStorage.removeItem("email");
 
    window.location = "index.html";
 }
@@ -46,7 +47,7 @@ function scheduleAppointment() {
      phone : localStorage.getItem("phone"),
      name : localStorage.getItem("name"),
      email : localStorage.getItem("email"),
-     button : `<button onclick="document.getElementById('scheduleAppointmentPage').classList.remove('d-none'); window.location = '#scheduleAppointmentPage'" style='color: black; background-color: lightblue; padding: 10px;'><h4>Schedule Appointment</h4></button>`
+     button : `<button style='color: black; background-color: lightblue; padding: 10px;' onclick='shudeleAppomentButton();'><h4>Schedule Appointment</h4></button>`
  })
 }
 
@@ -95,3 +96,32 @@ function IMReport() {
   });
   window.location = "#icR";
 }
+
+/*function notifyMe() {
+  if (!("Notification" in window)) {
+    alert("This browser does not support system notifications");
+  }
+  else if (Notification.permission === "granted") {
+    notify();
+  }
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      if (permission === "granted") {
+        notify();
+      }
+    });
+  }
+  
+  function notify() {
+    var notification = new Notification('TITLE OF NOTIFICATION', {
+      body: "Hey! You are on notice!",
+    });
+
+    notification.onclick = function () {
+      window.open("http://carnes.cc");      
+    };
+    setTimeout(notification.close.bind(notification), 7000); 
+  }
+
+}
+notifyMe();*/

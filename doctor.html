@@ -12,7 +12,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
         <!--  -->
         <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
@@ -105,10 +104,13 @@
                         <button class="nav-link" style="background: transparent; border: none; outline: none;">Home <span class="sr-only">(current)</span></button>
                     </li>
                     <li class="nav-item active">
-                        <button style="background: transparent; border: none; outline: none;" onclick="logout()" class="nav-link">Logout</button>
+                        <button style="background: transparent; border: none; outline: none;" id="gplr" class="nav-link">Get Patient Laboratory Report</button>
                     </li>
                     <li class="nav-item active">
-                        <button style="background: transparent; border: none; outline: none;" onclick="location.reload()" class="nav-link">Reload</button>
+                        <button style="background: transparent; border: none; outline: none;" id="gpicr" class="nav-link">Get Patient Imagine Center Report</button>
+                    </li>
+                    <li class="nav-item active">
+                        <button style="background: transparent; border: none; outline: none;" onclick="logout()" class="nav-link">Logout</button>
                     </li>
                 </ul>
             </div>
@@ -118,7 +120,7 @@
             <button onclick="fetchAllData()" class="rainbow-button opd-button" alt="OPD"></button>
             <br>
             <button class="treatment-button rainbow-button" alt="Treatment"></button>
-        </div>
+        </div>  
         <div style="width: 100%; height: 100vh; background: #eff;" class="d-none" id="treatment">
             <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; overflow-x: hidden;">
                 <br>
@@ -205,183 +207,96 @@
                 <span class="button-take"></span>
             </ul>
         </div>
-        <div style="width: 100%; height: 100vh; overflow-x: hidden;" id="scheduleAppointmentPage" class="d-none">
+        <div id="gplr-report" style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;" class="d-none">
+            <iframe src="" style="width: 300px; height: 500px; border: 2px solid orange;" id="gplr-report-iframe"></iframe>
+        </div>
+        <div id="gpicr-report" style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;" class="d-none">
+            <iframe src="" style="width: 300px; height: 500px; border: 2px solid orange;" id="gpicr-report-iframe"></iframe>
+        </div>
+        <div style="width: 100%; height: 100vh; overflow-x: hidden; text-align: center; background: #eee;" id="scheduleAppointmentPage" class="d-none">
             <h4> Schedule An Appointment</h4>
             <br>
             <br>
-            <div style="text-align: center;" class="monday">
-                <h1>Monday</h1>
-                <button id="10monday" style="color: black; background: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
-                <button id="1030monday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
+            <br>
+            <span style="justify-content: space-around;">
+            <button style="color: rgb(177, 115, 0);" class="week-one">Week 1</button>
+            <button style="color: rgb(177, 115, 0); margin-left: 50px;" class="week-two">Week 2</button>
+            <button style="color: rgb(177, 115, 0); margin-left: 50px;" class="week-three">Week 3</button>
+            <button style="color: rgb(177, 115, 0); margin-left: 50px;" class="week-four">Week 4</button>
+            </span>
+            <br>
+            <br>
+            <div class="weeks">
+                <p id="day1" style="position: relative; left: -140px; top: 40px;">27 / 4 / 2021</p>
                 <br>
+                <p style="color: gray; font-size: 15px; margin-right: 320px;">Monday</p>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">11:AM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">12:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">01:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">02:PM</button>
                 <br>
-                <button id="11monday" style="color: black; background: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
-                <button id="1130monday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
+                <p id="day2" style="position: relative; left: -140px; top: 40px;">27 / 4 / 2021</p>
                 <br>
+                <p style="color: gray; font-size: 15px; margin-right: 320px;">Tuesday</p>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">11:AM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">12:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">01:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">02:PM</button>
                 <br>
-                <button id="12monday" style="color: black; background: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
-                <button id="1230monday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
+                <p id="day3" style="position: relative; left: -140px; top: 40px;">27 / 4 / 2021</p>
                 <br>
+                <p style="color: gray; font-size: 15px; margin-right: 300px;">Wednesday</p>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">11:AM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">12:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">01:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">02:PM</button>
                 <br>
-                <button id="1monday" style="color: black; background: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
-                <button id="120monday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
+                <p id="day4" style="position: relative; left: -140px; top: 40px;">27 / 4 / 2021</p>
                 <br>
+                <p style="color: gray; font-size: 15px; margin-right: 310px;">Thursday</p>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">11:AM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">12:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">01:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">02:PM</button>
                 <br>
-                <button id="2monday" style="color: black; background: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
-                <button id="230monday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
+                <p id="day5" style="position: relative; left: -140px; top: 40px;">27 / 4 / 2021</p>
                 <br>
+                <p style="color: gray; font-size: 15px; margin-right: 330px;">Firday</p>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">11:AM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">12:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">01:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">02:PM</button>
                 <br>
-                <button id="3monday" style="color: black; background: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
-                <button id="330monday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
+                <p id="day6" style="position: relative; left: -140px; top: 40px;">27 / 4 / 2021</p>
                 <br>
-                <br>
-                <button id="4monday" style="color: black; background: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
+                <p style="color: gray; font-size: 15px; margin-right: 310px;">Saturaday</p>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">11:AM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">12:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">01:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 65px; right:-50px;">02:PM</button>
             </div>
-            <br><br>
-            <div style="text-align: center;" class="Tuesday">
-                <h1>Tuesday</h1>
-                <button id="10tuesday" style="color: black; background: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
-                <button id="1030tuesday"style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="11tuesday" style="color: black; background: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
-                <button id="1130tuesday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="12tuesday" style="color: black; background: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
-                <button id="1230tuesday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="1tuesday" style="color: black; background: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
-                <button id="130tuesday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="2tuesday" style="color: black; background: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
-                <button id="230tuesday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="3tuesday" style="color: black; background: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
-                <button id="330tuesday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="4tuesday" style="color: black; background: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
             </div>
-            <br><br>
-            <div style="text-align: center;" class="Wednesday">
-                <h1>Wednesday</h1>
-                <button id="10wednesday" style="color: black; background: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
-                <button id="1030wednesday"style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="11wednesday" style="color: black; background: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
-                <button id="1130wednesday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="12wednesday" style="color: black; background: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
-                <button id="1230wednesday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="1wednesday" style="color: black; background: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
-                <button id="130wednesday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="2wednesday" style="color: black; background: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
-                <button id="230wednesday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="3wednesday" style="color: black; background: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
-                <button id="330wednesday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="4wednesday" style="color: black; background: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
-            </div>
-            <br><br>
-            <div style="text-align: center;" class="Thursday">
-                <h1>Thursday</h1>
-                <button id="10thursday" style="color: black; background: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
-                <button id="1030thursday"style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="11thursday" style="color: black; background: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
-                <button id="1130thursday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="12thursday" style="color: black; background: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
-                <button id="1230thursday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="1thursday" style="color: black; background: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
-                <button id="130thursday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="2thursday" style="color: black; background: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
-                <button id="230thursday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="3thursday" style="color: black; background: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
-                <button id="330thursday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="4thursday" style="color: black; background: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
-            </div>
-            <br><br>
-            <div style="text-align: center;" class="Friday">
-                <h1>Friday</h1>
-                <button id="10friday" style="color: black; background: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
-                <button id="1030friday"style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="11friday" style="color: black; background: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
-                <button id="1130friday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="12friday" style="color: black; background: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
-                <button id="1230friday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="1friday" style="color: black; background: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
-                <button id="130friday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="2friday" style="color: black; background: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
-                <button id="230friday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="3friday" style="color: black; background: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
-                <button id="330friday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="4friday" style="color: black; background: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
-            </div>
-            <br><br>
-            <div style="text-align: center;" class="Saturaday">
-                <h1>Saturaday</h1>
-                <button id="10saturaday" style="color: black; background: #eff; padding: 20px;"><h4>10:00 AM</h4></button>
-                <button id="1030saturaday"style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>10:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="11saturaday" style="color: black; background: #eff; padding: 20px;"><h4>11:00 AM</h4></button>
-                <button id="1130saturaday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>11:30 AM</h4></button>
-                <br>
-                <br>
-                <button id="12saturaday" style="color: black; background: #eff; padding: 20px;"><h4>12:00 PM</h4></button>
-                <button id="1230saturaday" style="color: black; background: #eff; padding: 20px; margin-left: 50px;"><h4>12:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="1saturaday" style="color: black; background: #eff; padding: 20px;"><h4>1:00 PM</h4></button>
-                <button id="130saturaday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>1:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="2saturaday" style="color: black; background: #eff; padding: 20px;"><h4>2:00 PM</h4></button>
-                <button id="230saturaday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>2:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="3saturaday" style="color: black; background: #eff; padding: 20px;"><h4>3:00 PM</h4></button>
-                <button id="330saturaday" style="color: black; background: #eff; padding: 20px; margin-left: 60px;"><h4>3:30 PM</h4></button>
-                <br>
-                <br>
-                <button id="4saturaday" style="color: black; background: #eff; padding: 20px;"><h4>4:00 PM</h4></button>
-            </div>
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title mr-auto">Modal Header</h4>
+                      <button type="button" class="close ml-auto" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <script src="jquery.min.js"></script>
         <script src="doctor.js"></script>
     </body>
 </html>

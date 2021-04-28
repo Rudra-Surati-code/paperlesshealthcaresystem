@@ -5,7 +5,8 @@ function loading() {
 }
 
 function logout() {
-   window.localStorage.clear();
+  window.localStorage.removeItem("name");
+  window.localStorage.removeItem("email");
 
    window.location = "index.html";
 }
@@ -38,15 +39,14 @@ $(document).ready(function() {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
 
 function fetchAllData() {
   firebase.database().ref("patient/").child("/").on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-      $("#Name").text("Name :- "  + childData.name);
-      $("#Email").text("Email :- " + childData.email);
-      $("#Phone").text("Phone :- " + childData.phone);
+      $("#Name").html("Name :- "  + childData.name);
+      $("#Email").html("Email :- " + childData.email);
+      $("#Phone").html("Phone :- " + childData.phone);
       $(".button-take").html(childData.button);
     });
 });
@@ -54,7 +54,7 @@ function fetchAllData() {
 
 
 $('.tds-textarea').keyup(function() {
-    $(this).next('.textarea-clone').html(this.value.replace(/\n/g, '<br/>'));
+    $(this).next('.textarea-clone').html(this.value.replace("/\n/g", '<br/>'));
 });
 
 function prescriptionMedicineSend() {
@@ -73,4 +73,34 @@ function prescriptionImagineCenterSend() {
   firebase.database().ref("doctor/").child("prescriptionImagineCenter").set({
     pic : document.getElementById("prescriptionImagineCenterInput").value
   })
+}
+
+$("#gplr").click(function() {
+  $("#gplr-report").toggleClass("d-none");
+  window.location = "#gplr-report";
+  firebase.database().ref("laboratatory/").child("/").on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      $("#gplr-report-iframe").attr("src", childData.laboratatoryReport);
+    });
+});
+})
+
+$("#gpicr").click(function() {
+  $("#gpicr-report").toggleClass("d-none");
+  window.location = "#gpicr-report";
+  firebase.database().ref("imaginecenter/").child("/").on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      $("#gpicr-report-iframe").attr("src", childData.imaginecenterReport);
+    });
+});
+})
+
+function shudeleAppomentButton() {
+    $("#scheduleAppointmentPage").toggleClass("d-none");
+    window.location = "#scheduleAppointmentPage";
+    var varDate = new Date();
+    date = varDate.getDate();
+    $("#day1").text(date);
 }

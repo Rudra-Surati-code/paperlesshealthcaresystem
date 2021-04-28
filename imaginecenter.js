@@ -21,7 +21,8 @@ function loading() {
 }
 
 function logout() {
-    window.localStorage.clear();
+  window.localStorage.removeItem("name");
+  window.localStorage.removeItem("email");
 
     window.location = "index.html";
 }
