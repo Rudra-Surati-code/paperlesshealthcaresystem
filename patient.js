@@ -10,8 +10,7 @@ function loading() {
    }
 }
 function logout() {
-   window.localStorage.clear();
-
+  window.localStorage.clear();
    window.location = "index.html";
 }
 // DataBase
