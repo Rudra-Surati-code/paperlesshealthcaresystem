@@ -10,8 +10,7 @@ function loading() {
    }
 }
 function logout() {
-  window.localStorage.removeItem("name");
-  window.localStorage.removeItem("email");
+  window.localStorage.clear();
 
    window.location = "index.html";
 }
