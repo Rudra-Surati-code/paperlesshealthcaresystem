@@ -100,6 +100,51 @@ function shudeleAppomentButton() {
     $("#scheduleAppointmentPage").toggleClass("d-none");
     window.location = "#scheduleAppointmentPage";
     var varDate = new Date();
+    day = varDate.getDay();
     date = varDate.getDate();
-    $("#day1").text(date);
+    month = varDate.getMonth();
+    year = varDate.getFullYear();
+    if(day == 1) {
+        $("#day1").html(`${date} / ${month} / ${year}`);
+        $("#day2").html(`${date + 1} / ${month} / ${year}`);
+        $("#day3").html(`${date + 2} / ${month} / ${year}`);
+        $("#day4").html(`${date + 3} / ${month} / ${year}`);
+        $("#day5").html(`${date + 4} / ${month} / ${year}`);
+        $("#day6").html(`${date + 5} / ${month} / ${year}`);
+    } else if(day == 2) {
+        $("#day1").html(`${date - 1} / ${month} / ${year}`);
+        $("#day2").html(`${date} / ${month} / ${year}`);
+        $("#day3").html(`${date + 1} / ${month} / ${year}`);
+        $("#day4").html(`${date + 2} / ${month} / ${year}`);
+        $("#day5").html(`${date + 3} / ${month} / ${year}`);
+        $("#day6").html(`${date + 4} / ${month} / ${year}`);
+    } else if(day == 3) {
+        $("#day1").html(`${date - 2} / ${month} / ${year}`);
+        $("#day2").html(`${date - 1} / ${month} / ${year}`);
+        $("#day3").html(`${date} / ${month} / ${year}`);
+        $("#day4").html(`${date + 1} / ${month} / ${year}`);
+        $("#day5").html(`${date + 2} / ${month} / ${year}`);
+        $("#day6").html(`${date + 3} / ${month} / ${year}`);
+    } else if(day == 4) {
+        $("#day1").html(`${date - 3} / ${month} / ${year}`);
+        $("#day2").html(`${date - 2} / ${month} / ${year}`);
+        $("#day3").html(`${date - 1} / ${month} / ${year}`);
+        $("#day4").html(`${date} / ${month} / ${year}`);
+        $("#day5").html(`${date + 1} / ${month} / ${year}`);
+        $("#day6").html(`${date + 2} / ${month} / ${year}`);
+    } else if(day == 5) {
+        $("#day1").html(`${date - 4} / ${month} / ${year}`);
+        $("#day2").html(`${date - 3} / ${month} / ${year}`);
+        $("#day3").html(`${date - 2} / ${month} / ${year}`);
+        $("#day4").html(`${date - 1} / ${month} / ${year}`);
+        $("#day5").html(`${date} / ${month} / ${year}`);
+        $("#day6").html(`${date + 1} / ${month} / ${year}`);
+    } else if(day == 6) {
+        $("#day1").html(`${date - 5} / ${month} / ${year}`);
+        $("#day2").html(`${date - 4} / ${month} / ${year}`);
+        $("#day3").html(`${date - 3} / ${month} / ${year}`);
+        $("#day4").html(`${date - 2} / ${month} / ${year}`);
+        $("#day5").html(`${date - 1} / ${month} / ${year}`);
+        $("#day6").html(`${date} / ${month} / ${year}`);
+    } 
 }
