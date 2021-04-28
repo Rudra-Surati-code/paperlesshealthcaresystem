@@ -5,8 +5,7 @@ function loading() {
 }
 
 function logout() {
-  window.localStorage.removeItem("name");
-  window.localStorage.removeItem("email");
+  localStorage.clear();
 
    window.location = "index.html";
 }
