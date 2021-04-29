@@ -3,25 +3,148 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>LetsChat Web App</title>
-	<link rel="stylesheet" href="letschat.css">
-</head>
-<body>
+	<title>Paper Less</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,300' rel='stylesheet' type='text/css'>
-<div id="mainButton">
-	<div class="btn-text" onclick="openForm()">Sign In</div>
-	<div class="modal">
-		<div class="close-button" onclick="closeForm()">x</div>
-		<div class="form-title">Sign In</div>
-		<div class="input-group">
-			<input type="text" id="user_name" onblur="checkInput(this)" />
-			<label for="name">Username</label>
-		</div>
-		<div class="form-button" onclick="addUser()">Go</div>
-	</div>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+  <script src="jquery.min.js"></script>
+</head>
+<body onload="loading();" onload="check();">
+      <!-- preloader start -->
+      <div id="body">
+         <div class="preloader" id="preloader">
+    <div class="preloader__ring">
+        <div class="preloader__sector">L</div>
+        <div class="preloader__sector">o</div>
+        <div class="preloader__sector">a</div>
+        <div class="preloader__sector">d</div>
+        <div class="preloader__sector">i</div>
+        <div class="preloader__sector">n</div>
+        <div class="preloader__sector">g</div>
+        <div class="preloader__sector">.</div>
+        <div class="preloader__sector">.</div>
+        <div class="preloader__sector">.</div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+    </div>
+    <div class="preloader__ring">
+        <div class="preloader__sector">P</div>
+        <div class="preloader__sector">l</div>
+        <div class="preloader__sector">e</div>
+        <div class="preloader__sector">a</div>
+        <div class="preloader__sector">s</div>
+        <div class="preloader__sector">e</div>
+        <div class="preloader__sector"> </div>
+        <div class="preloader__sector">w</div>
+        <div class="preloader__sector">a</div>
+        <div class="preloader__sector">i</div>
+        <div class="preloader__sector">t</div>
+        <div class="preloader__sector">.</div>
+        <div class="preloader__sector">.</div>
+        <div class="preloader__sector">.</div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+        <div class="preloader__sector"></div>
+    </div>
+</div>
+      </div>
+      <!-- preloader ends -->
+
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+<div class="container">
+  <div class="frame">
+    <div class="nav">
+      <ul class="links">
+        <li class="signin-active"><a class="btn">Sign in</a></li>
+        <li class="signup-inactive"><a class="btn">Sign up </a></li>
+      </ul>
+    </div>
+    <div>
+                <div class="form-signin">
+          <label for="username">Username</label>
+          <input autocomplete="off" class="form-styling" id="name" type="text" name="username" placeholder=""/>
+          <label for="password">Email</label>
+          <input autocomplete="off" class="form-styling" id="email" type="email" name="password" placeholder=""/>
+          <input autocomplete="off" type="checkbox" id="checkbox"/>
+          <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
+          <div class="btn-animate">
+            <a class="btn-signin" id="submit" style="color: #fff;">Sign in</a>
+          </div>
+          <hr>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div style="color: red;" id="error"></div>
+                </div>
+        
+                <div class="form-signup">
+          <label for="fullname">Full name</label>
+          <input autocomplete="off" class="form-styling" type="text" name="fullname" placeholder=""/>
+          <label for="email">Email</label>
+          <input autocomplete="off" class="form-styling" type="text" name="email" placeholder=""/>
+          <label for="password">Password</label>
+          <input autocomplete="off" class="form-styling" type="text" name="password" placeholder=""/>
+          <label for="confirmpassword">Confirm password</label>
+          <input autocomplete="off" class="form-styling" type="text" name="confirmpassword" placeholder=""/>
+          <a class="btn-signup" style="color: #fff;">Sign Up</a>
+                </div>
+      
+            <div  class="success">
+              <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       viewBox="0 0 60 60" id="check" ng-class="checked ? 'checked' : ''">
+                 <path fill="#ffffff" d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314
+                  c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042
+                  c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
+                <div class="successtext">
+                   <p> Thanks for signing up! Check your email for confirmation.</p>
+                </div>
+             </div>
+      </div>
 </div>
 
-	<script src="letschat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+<script src="main.js"></script>
 </body>
 </html>

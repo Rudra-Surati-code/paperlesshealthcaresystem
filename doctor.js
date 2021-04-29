@@ -2,6 +2,9 @@ var preloader = document.getElementById("body");
 
 function loading() {
    preloader.style.display = "none";
+   if(localStorage.getItem("monday11am-background-orange") == "true") {
+      $("#monday11am").css("background", "orange");
+   }
 }
 
 function logout() {
@@ -94,16 +97,17 @@ $("#gpicr").click(function() {
       $("#gpicr-report-iframe").attr("src", childData.imaginecenterReport);
     });
 });
-})
+});
+
+var varDate = new Date();
+var day = varDate.getDay();
+var date = varDate.getDate();
+var month = varDate.getMonth();
+var year = varDate.getFullYear();
 
 function shudeleAppomentButton() {
     $("#scheduleAppointmentPage").toggleClass("d-none");
     window.location = "#scheduleAppointmentPage";
-    var varDate = new Date();
-    day = varDate.getDay();
-    date = varDate.getDate();
-    month = varDate.getMonth();
-    year = varDate.getFullYear();
     if(day == 1) {
         $("#day1").html(`${date} / ${month} / ${year}`);
         $("#day2").html(`${date + 1} / ${month} / ${year}`);
@@ -148,3 +152,13 @@ function shudeleAppomentButton() {
         $("#day6").html(`${date} / ${month} / ${year}`);
     } 
 }
+
+$("#monday11am").click(function() {
+  firebase.database().ref("slot/").child("slotShudele").set({
+    slotdate : $("#day1").html(),
+    slottime : "11:AM"
+  })
+
+  localStorage.setItem("monday11am-background-orange", "true");
+  $("#monday11am").css("background", "orange");
+});

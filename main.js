@@ -10,53 +10,43 @@ function loading() {
    }
 }
 
-var current = null;
-document.querySelector('#name').addEventListener('focus', function(e) {
-  if (current) current.pause();
-  current = anime({
-    targets: 'path',
-    strokeDashoffset: {
-      value: 0,
-      duration: 700,
-      easing: 'easeOutQuart'
-    },
-    strokeDasharray: {
-      value: '240 1386',
-      duration: 700,
-      easing: 'easeOutQuart'
-    }
+$(function() {
+  $(".btn").click(function() {
+    $(".form-signin").toggleClass("form-signin-left");
+    $(".form-signup").toggleClass("form-signup-left");
+    $(".frame").toggleClass("frame-long");
+    $(".signup-inactive").toggleClass("signup-active");
+    $(".signin-active").toggleClass("signin-inactive");
+    $(".forgot").toggleClass("forgot-left");   
+    $(this).removeClass("idle").addClass("active");
   });
 });
-document.querySelector('#email').addEventListener('focus', function(e) {
-  if (current) current.pause();
-  current = anime({
-    targets: 'path',
-    strokeDashoffset: {
-      value: -336,
-      duration: 700,
-      easing: 'easeOutQuart'
-    },
-    strokeDasharray: {
-      value: '240 1386',
-      duration: 700,
-      easing: 'easeOutQuart'
-    }
+
+$(function() {
+  $(".btn-signup").click(function() {
+  $(".nav").toggleClass("nav-up");
+  $(".form-signup-left").toggleClass("form-signup-down");
+  $(".success").toggleClass("success-left"); 
+  $(".frame").toggleClass("frame-short");
   });
 });
-document.querySelector('#submit').addEventListener('click', function(e) {
-  if (current) current.pause();
-  current = anime({
-    targets: 'path',
-    strokeDashoffset: {
-      value: -730,
-      duration: 700,
-      easing: 'easeOutQuart'
-    },
-    strokeDasharray: {
-      value: '530 1386',
-      duration: 700,
-      easing: 'easeOutQuart'
-    }
+
+$(function() {
+  $(".btn-signin").click(function() {
+    name = document.getElementById("name").value;
+  email = document.getElementById("email").value;
+
+    if (name == "") {
+      document.getElementById("error").innerHTML = "Please enter a valid name";
+    } else if (email == "") {
+    document.getElementById("error").innerHTML = "Please enter a valid email";
+    } else {
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+      document.getElementById("error").innerHTML = "";
+
+      window.location = "whatyouare.html";
+  }
   });
 });
 
