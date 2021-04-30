@@ -8,6 +8,9 @@ function loading() {
    } else if(localStorage.getItem("email") == null == false) {
     window.location = "whatyouare.html";
    }
+   else if(localStorage.getItem("password") == null == false) {
+    window.location = "whatyouare.html";
+   }
 }
 
 $(function() {
@@ -54,15 +57,21 @@ $(function() {
 
 document.getElementById('submit').addEventListener('click', function(inputText) {
     name = document.getElementById("name").value;
-	email = document.getElementById("email").value;
+	  email = document.getElementById("email").value;
+    password = document.getElementById("password").value;
 
     if (name == "") {
     	document.getElementById("error").innerHTML = "Please enter a valid name";
     } else if (email == "") {
 		document.getElementById("error").innerHTML = "Please enter a valid email";
-    } else {
+    } else if (password == "") {
+    document.getElementById("error").innerHTML = "Please enter a valid Password";
+  }
+     else {
     	localStorage.setItem("name", name);
-		localStorage.setItem("email", email);
+		  localStorage.setItem("email", email);
+      localStorage.setItem("passowrd", passowrd);
+
 		document.getElementById("error").innerHTML = "";
 
 		window.location = "whatyouare.html";
