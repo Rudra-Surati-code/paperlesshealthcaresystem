@@ -259,22 +259,77 @@ $(".week-two").click(function() {
         $("#day6").html(`${date} / ${month + 1} / ${year}`);
     }
 })
-
+// Monday
 $("#monday11am").click(function() {
-    $(".modal-title").text("Schedule Appointment at Monday 11 AM");
+    $(".modal-title").text("Schedule Appointment at Monday 11:00 AM");
     var SBM11AMS = `<button class="btn btn-success" id="SBM11AMS">Shudele Appointment</button><br><br>`;
-    var SBM11AMC = `<button class="btn btn-danger" id="SBM11AMC">Remove Appointment</button>`;
+    var SBM11AMC = `<button class="btn btn-danger" disabled id="SBM11AMC">Remove Appointment</button>`;
     $(".modal-body").append(SBM11AMS+SBM11AMC);
 
     $("#SBM11AMS").click(function() {
         firebase.database().ref("slotSBM11AM/").set({
             slotdate: $("#day1").text(),
-            slottime: "11:AM"
+            slottime: "11:00 AM"
         })
+        $("#SBM11AMC").removeAttr("disabled");
     })
 
     $("#SBM11AMC").click(function() {
         firebase.database().ref("slotSBM11AM/").remove()
+    })
+})
+$("#monday12pm").click(function() {
+    $(".modal-title").text("Schedule Appointment at Monday 12:00 PM");
+    var SBM12PMS = `<button class="btn btn-success" id="SBM12PMS">Shudele Appointment</button><br><br>`;
+    var SBM12PMC = `<button class="btn btn-danger" disabled id="SBM12PMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBM12PMS+SBM12PMC);
+
+    $("#SBM12PMS").click(function() {
+        firebase.database().ref("slotSBM12PM/").set({
+            slotdate: $("#day1").text(),
+            slottime: "12:00 PM"
+        })
+        $("#SBM12PMC").removeAttr("disabled");
+    })
+
+    $("#SBM11AMC").click(function() {
+        firebase.database().ref("slotSBM12PM/").remove()
+    })
+})
+$("#monday1pm").click(function() {
+    $(".modal-title").text("Schedule Appointment at Monday 01:00 PM");
+    var SBM01PMS = `<button class="btn btn-success" id="SBM01PMS">Shudele Appointment</button><br><br>`;
+    var SBM01PMC = `<button class="btn btn-danger" disabled id="SBM01PMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBM01PMS+SBM01PMC);
+
+    $("#SBM01PMS").click(function() {
+        firebase.database().ref("slotSBM01PMS/").set({
+            slotdate: $("#day1").text(),
+            slottime: "01:00 PM"
+        })
+        $("#SBM01PMC").removeAttr("disabled");
+    })
+
+    $("#SBM01PMC").click(function() {
+        firebase.database().ref("slotSBM01PMS/").remove()
+    })
+})
+$("#monday2pm").click(function() {
+    $(".modal-title").text("Schedule Appointment at Monday 02:00 AM");
+    var SBM02PMS = `<button class="btn btn-success" id="SBM02PMS">Shudele Appointment</button><br><br>`;
+    var SBM02PMC = `<button class="btn btn-danger" disabled id="SBM02PMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBM02PMS+SBM02PMC);
+
+    $("#SBM02PMS").click(function() {
+        firebase.database().ref("slotSBM02PMS/").set({
+            slotdate: $("#day1").text(),
+            slottime: "02:00 AM"
+        })
+        $("#SBM02PMC").removeAttr("disabled");
+    })
+
+    $("#SBM02PMC").click(function() {
+        firebase.database().ref("slotSBM02PMS/").remove()
     })
 })
 
