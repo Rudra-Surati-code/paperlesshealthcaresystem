@@ -278,3 +278,7 @@ $("#SBM11AMS").click(function() {
 $("#SBM11AMS").click(function() {
     firebase.database().ref("slot/").child("slotShudeleMonday11am").remove()
 })
+
+$(".cls").click(function() {
+    $(".modal-body").empty();
+})
