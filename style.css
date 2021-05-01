@@ -696,7 +696,3 @@ a.btn-goback:hover {
     transition: all .5s; 
     color: #ffffff;
 }
-
-#dropdownmenuMain:hover > .dropdownmenu {
-  display: block;
-}

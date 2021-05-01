@@ -259,3 +259,22 @@ $(".week-two").click(function() {
         $("#day6").html(`${date} / ${month + 1} / ${year}`);
     }
 })
+
+$("#monday11am").click(function() {
+    $(".modal-title").text("Schedule Appointment at Monday 11 AM");
+    var SBM11AMS = `<button class="btn btn-success" id="SBM11AMS">Shudele Appointment</button><br><br>`;
+    var SBM11AMC = `<button class="btn btn-danger" id="SBM11AMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBM11AMS+SBM11AMC);
+})
+
+$("#SBM11AMS").click(function() {
+    // firebase.database().ref("slot/").child("slotShudeleMonday11am").set({
+    //     sloteDate: $("#day1").val(),
+    //     sloteTime: "11:AM"
+    // })
+    alert("Success");
+})
+
+$("#SBM11AMS").click(function() {
+    firebase.database().ref("slot/").child("slotShudeleMonday11am").remove()
+})
