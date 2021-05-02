@@ -49,7 +49,7 @@ $("#submit").click(function() {
     } else if (email == "") {
         $(".error").text("Please enter an email");
     } else if (localStorage.getItem("person") == null) {
-        $(".error").text("Please Select What are are")
+        $(".error").text("Please Select Who are you")
     } else {
         localStorage.setItem("name", name);
         localStorage.setItem("email", email);
