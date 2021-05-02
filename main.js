@@ -2,11 +2,9 @@ var preloader = document.getElementById("body");
 
 function loading() {
     preloader.style.display = "none";
-     if (localStorage.getItem("person") == "doctor") {
+    if (localStorage.getItem("person") == "doctor") {
         window.location = "doctor.html";
-    } else if(localStorage.getItem("name") == null) {
-    } else if(localStorage.getItem("email") == null) {
-    } else if (localStorage.getItem("person") == "patient") {
+    } else if (localStorage.getItem("name") == null) {} else if (localStorage.getItem("email") == null) {} else if (localStorage.getItem("person") == "patient") {
         window.location = "patient.html";
     } else if (localStorage.getItem("person") == "laboratory") {
         window.location = "labotatory.html";
@@ -46,14 +44,25 @@ $("#submit").click(function() {
     var name = $("#name").val();
     var email = $("#email").val();
 
-    if(name == "") {
+    if (name == "") {
         $(".error").text("Please enter a name");
-    } else if(email == ""){
+    } else if (email == "") {
         $(".error").text("Please enter an email");
-    } else if(localStorage.getItem("person") == null) {
+    } else if (localStorage.getItem("person") == null) {
         $(".error").text("Please Select What are are")
     } else {
         localStorage.setItem("name", name);
         localStorage.setItem("email", email);
+        if (localStorage.getItem("person") == "doctor") {
+            window.location = "doctor.html";
+        } else if (localStorage.getItem("person") == "patient") {
+            window.location = "patient.html";
+        } else if (localStorage.getItem("person") == "laboratory") {
+            window.location = "labotatory.html";
+        } else if (localStorage.getItem("person") == "imaginecenter") {
+            window.location = "imaginecenter.html";
+        } else if (localStorage.getItem("person") == "medicalstore") {
+            window.location = "medicalcenter.html";
+        }
     }
 })
