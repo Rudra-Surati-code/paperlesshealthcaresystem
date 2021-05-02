@@ -109,16 +109,10 @@
                 <button onclick="phoneNumber()" id="go">Go<button></div>
                     <p id="error"></p>
                     <!--  -->
-                    <button onclick="medicalReport()"style="background: green; padding: 10px; margin-left: 10%;">Get Report</button><br>
+                    <button onclick="medicalReport()"style="background: green; padding: 10px; margin-left: 10%;">Get Report</button>
                     <br>
                     <br>
-                    <button onclick="medicalReceipt()"style="background: green; padding: 10px; margin-left: 10%;" id="not">Get Receipt</button><br>
-                    <br>
-                    <br>
-                    <button onclick="labReport()"style="background: green; padding: 10px; margin-left: 10%;">Get Laboratory Report</button><br>
-                    <br>
-                    <br>
-                    <button onclick="IMReport()"style="background: green; padding: 10px; margin-left: 10%;">Get Imagine Center Report</button><br>
+                    <button class="ad" style="background: green; padding: 10px; margin-left: 10%;">Get Appointment Details</button><br>
                     <br>
                     <br>
                     <h4 style="margin-left: 40px; ">Select City and hospital from below and <br><br> Take an Appointment</h4>
@@ -172,38 +166,69 @@
                     <br>
                     <br>
                     <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
 
                 </div>
             </div>
-            <div style="width: 100%; height: 100vh; overflow-x: hidden; text-align: center;" class="d-none" id="report">
+            <div id="adT" class="d-none" style="width: 100%; height: 100vh; display: flex; justify-content: center; text-align: center; overflow: hidden;">
                 <br>
                 <br>
-                <h4>Jevan Jyot Hospital Record</h4>
+                <div style="width: 95%; height: 40vh; background: orange; color: #000;">
+                    <h4 style="opacity: 1;" id="appointmentDi"></h4>
+                    <br>
+                    <br>
+                    <br>   
+                    <div class="stb">
+                         <button style="width: 50%; height: 30px; background: lightblue; border-radius: 20px; text-align: center; opacity: 1; font-size: 20px; color: #000;" class="start-appoinment-button">Start Appointment</button>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%; height: 100vh; overflow-x: hidden;" class="d-none" id="report">
+                <br>
+                <br>
+                <h4 style="text-align: center;">Jevan Jyot Hospital Record</h4>
                 <br>
                 <br>
                 <br>
+                <button onclick="$('.jf').toggleClass('d-none'); window.location = '#jf'" style="background: green; color: #fff; padding: 10px; margin-left: 10%;">Get Report From Doctor</button><br>
+                <br>
+                <br>
+                <button onclick="medicalReceipt()"style="background: green; color: #fff; padding: 10px; margin-left: 10%;">Get Receipt from Medical Store</button><br>
+                    <br>
+                    <br>
+                    <button onclick="labReport()"style="background: green; color: #fff; padding: 10px; margin-left: 10%;">Get Report from Laboratory</button><br>
+                    <br>
+                    <br>
+                    <button onclick="IMReport()"style="background: green; color: #fff; padding: 10px; margin-left: 10%;">Get Report from Imagine Center</button>
                 <br>
                 <br>
                 <br>
+
+            </div>
+            <div class="jf d-none" id="jf" style="width: 100%; height: 100vh; justify-content: center; align-items: center; overflow-x: hidden; flex-direction: columns;">
+                <br>
+                <h4 style="text-align: center;">This is your doctor Report</h4>
+                <br>
+
+                <br>
+
+                <br>
+
+                <br>
+
                 <br>
                 <br>
+
                 <br>
+
                 <br>
+                <h4 style="margin-left: 30px;">Prescription of Medical Center</h4>
+                <h4 style="margin-left: 30px;" id="patientMedicalReport"></h4>
                 <br>
+                <h4 style="margin-left: 30px;">Prescription of Laboratory</h4>
+                <h4 style="margin-left: 30px;" id="patientLaboratory"></h4>
                 <br>
-                <h4>Prescription of Medical Center</h4>
-                <h4 id="patientMedicalReport"></h4>
-                <br>
-                <h4>Prescription of Laboratory</h4>
-                <h4 id="patientLaboratory"></h4>
-                <br>
-                <h4>Prescription of Imagine Center</h4>
-                <h4 id="patientImagineCenter"></h4>
+                <h4 style="margin-left: 30px;">Prescription of Imagine Center</h4>
+                <h4 style="margin-left: 30px;" id="patientImagineCenter"></h4>
             </div>
             <div style="width: 100%; height: 100vh; text-align: center; position: absolute; margin-top: 20px;" class="d-none" id="hospital" >
                     <h1 id="hospitalName">Jevan Jyot Hospital</h1>

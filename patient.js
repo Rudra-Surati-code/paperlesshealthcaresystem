@@ -96,31 +96,49 @@ function IMReport() {
   window.location = "#icR";
 }
 
-/*function notifyMe() {
-  if (!("Notification" in window)) {
-    alert("This browser does not support system notifications");
-  }
-  else if (Notification.permission === "granted") {
-    notify();
-  }
-  else if (Notification.permission !== 'denied') {
-    Notification.requestPermission(function (permission) {
-      if (permission === "granted") {
-        notify();
-      }
-    });
-  }
+var d = new Date();
+var date = d.getDate();
+var month = d.getMonth();
+var year = d.getFullYear();
+
+$(".ad").click(function() {
+  $("#adT").toggleClass('d-none');
+  window.location = "#adT";
+  firebase.database().ref("/").on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      childData = childSnapshot.val();
+      $("#appointmentDi").html(`Your appointment has been confirmed on ${childData.slotdate} at ${childData.slottime} for Jevan Jyot Hospital`);
+      console.log(d);
+    })
+  })
+})
+
+
+// function notifyMe() {
+//   if (!("Notification" in window)) {
+//     alert("This browser does not support system notifications");
+//   }
+//   else if (Notification.permission === "granted") {
+//     notify();
+//   }
+//   else if (Notification.permission !== 'denied') {
+//     Notification.requestPermission(function (permission) {
+//       if (permission === "granted") {
+//         notify();
+//       }
+//     });
+//   }
   
-  function notify() {
-    var notification = new Notification('TITLE OF NOTIFICATION', {
-      body: "Hey! You are on notice!",
-    });
+//   function notify() {
+//     var notification = new Notification('TITLE OF NOTIFICATION', {
+//       body: "Hey! You are on notice!",
+//     });
 
-    notification.onclick = function () {
-      window.open("http://carnes.cc");      
-    };
-    setTimeout(notification.close.bind(notification), 7000); 
-  }
+//     notification.onclick = function () {
+//       window.open("http://carnes.cc");      
+//     };
+//     setTimeout(notification.close.bind(notification), 7000); 
+//   }
 
-}
-notifyMe();*/
+// }
+// notifyMe();
