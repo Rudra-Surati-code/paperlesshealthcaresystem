@@ -68,3 +68,7 @@ $("#submit").click(function() {
         }
     }
 })
+
+setTimeout(function() {
+    $("#welcome").css("display", "none");
+}, 3000)
