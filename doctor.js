@@ -92,175 +92,33 @@ $("#gpicr").click(function() {
       var childData = childSnapshot.val();
       $("#gpicr-report-iframe").attr("src", childData.imaginecenterReport);
     });
+  });
 });
-});
+
+let newDate = new Date();
+let day = newDate.getDay();
+let date = newDate.getDate();
+let month = newDate.getMonth();
+let year = newDate.getFullYear();
 
 function shudeleAppomentButton() {
     $("#scheduleAppointmentPage").toggleClass("d-none");
     window.location = "#scheduleAppointmentPage";
-    var varDate = new Date();
-var day = varDate.getDay();
-var date = varDate.getDate();
-var month = varDate.getMonth();
-var year = varDate.getFullYear();
-    if(day == 1) {
-        $("#day1").html(`${date} / ${month} / ${year}`);
-        $("#day2").html(`${date + 1} / ${month} / ${year}`);
-        $("#day3").html(`${date + 2} / ${month} / ${year}`);
-        $("#day4").html(`${date + 3} / ${month} / ${year}`);
-        $("#day5").html(`${date + 4} / ${month} / ${year}`);
-        $("#day6").html(`${date + 5} / ${month} / ${year}`);
-    } else if(day == 2) {
-        $("#day1").html(`${date - 1} / ${month} / ${year}`);
-        $("#day2").html(`${date} / ${month} / ${year}`);
-        $("#day3").html(`${date + 1} / ${month} / ${year}`);
-        $("#day4").html(`${date + 2} / ${month} / ${year}`);
-        $("#day5").html(`${date + 3} / ${month} / ${year}`);
-        $("#day6").html(`${date + 4} / ${month} / ${year}`);
-    } else if(day == 3) {
-        $("#day1").html(`${date - 2} / ${month} / ${year}`);
-        $("#day2").html(`${date - 1} / ${month} / ${year}`);
-        $("#day3").html(`${date} / ${month} / ${year}`);
-        $("#day4").html(`${date + 1} / ${month} / ${year}`);
-        $("#day5").html(`${date + 2} / ${month} / ${year}`);
-        $("#day6").html(`${date + 3} / ${month} / ${year}`);
-    } else if(day == 4) {
-        $("#day1").html(`${date - 3} / ${month} / ${year}`);
-        $("#day2").html(`${date - 2} / ${month} / ${year}`);
-        $("#day3").html(`${date - 1} / ${month} / ${year}`);
-        $("#day4").html(`${date} / ${month} / ${year}`);
-        $("#day5").html(`${date + 1} / ${month} / ${year}`);
-        $("#day6").html(`${date + 2} / ${month} / ${year}`);
-    } else if(day == 5) {
-        $("#day1").html(`${date - 4} / ${month} / ${year}`);
-        $("#day2").html(`${date - 3} / ${month} / ${year}`);
-        $("#day3").html(`${date - 2} / ${month} / ${year}`);
-        $("#day4").html(`${date - 1} / ${month} / ${year}`);
-        $("#day5").html(`${date} / ${month} / ${year}`);
-        $("#day6").html(`${date + 1} / ${month} / ${year}`);
-    } else if(day == 6) {
-        $("#day1").html(`${date - 5} / ${month} / ${year}`);
-        $("#day2").html(`${date - 4} / ${month} / ${year}`);
-        $("#day3").html(`${date - 3} / ${month} / ${year}`);
-        $("#day4").html(`${date - 2} / ${month} / ${year}`);
-        $("#day5").html(`${date - 1} / ${month} / ${year}`);
-        $("#day6").html(`${date} / ${month} / ${year}`);
-    } 
+    $("#day1").html(`${date} / ${month} / ${year}`);
+    $("#day2").html(`${date + 1} / ${month} / ${year}`);
+    $("#day3").html(`${date + 2} / ${month} / ${year}`);
+    $("#day4").html(`${date + 3} / ${month} / ${year}`);
+    $("#day5").html(`${date + 4} / ${month} / ${year}`);
+    $("#day6").html(`${date + 5} / ${month} / ${year}`);
+    if(localStorage.getItem("monday11ambo") == "true" == true) {
+        $("#monday11am").css("background", "orange");
+    }
 }
-
-$("#monday11am").click(function() {
-  $("#myModal").attr("data-toggle", "modal");
-});
-$("#monday12pm").click(function() {
-  firebase.database().ref("slot/").child("slotShudeleMonday12am").set({
-    slotdate : $("#day2").html(),
-    slottime : "12:AM"
-  })
-});
-
-$(".week-one").click(function() {
-  if(day == 1) {
-    var varDate = new Date();
-        var day = varDate.getDay();
-        var date = varDate.getDate();
-        var month = varDate.getMonth();
-        var year = varDate.getFullYear();
-        $("#day1").html(`${date} / ${month} / ${year}`);
-        $("#day2").html(`${date + 1} / ${month} / ${year}`);
-        $("#day3").html(`${date + 2} / ${month} / ${year}`);
-        $("#day4").html(`${date + 3} / ${month} / ${year}`);
-        $("#day5").html(`${date + 4} / ${month} / ${year}`);
-        $("#day6").html(`${date + 5} / ${month} / ${year}`);
-    } else if(day == 2) {
-        $("#day1").html(`${date - 1} / ${month} / ${year}`);
-        $("#day2").html(`${date} / ${month} / ${year}`);
-        $("#day3").html(`${date + 1} / ${month} / ${year}`);
-        $("#day4").html(`${date + 2} / ${month} / ${year}`);
-        $("#day5").html(`${date + 3} / ${month} / ${year}`);
-        $("#day6").html(`${date + 4} / ${month} / ${year}`);
-    } else if(day == 3) {
-        $("#day1").html(`${date - 2} / ${month} / ${year}`);
-        $("#day2").html(`${date - 1} / ${month} / ${year}`);
-        $("#day3").html(`${date} / ${month} / ${year}`);
-        $("#day4").html(`${date + 1} / ${month} / ${year}`);
-        $("#day5").html(`${date + 2} / ${month} / ${year}`);
-        $("#day6").html(`${date + 3} / ${month} / ${year}`);
-    } else if(day == 4) {
-        $("#day1").html(`${date - 3} / ${month} / ${year}`);
-        $("#day2").html(`${date - 2} / ${month} / ${year}`);
-        $("#day3").html(`${date - 1} / ${month} / ${year}`);
-        $("#day4").html(`${date} / ${month} / ${year}`);
-        $("#day5").html(`${date + 1} / ${month} / ${year}`);
-        $("#day6").html(`${date + 2} / ${month} / ${year}`);
-    } else if(day == 5) {
-        $("#day1").html(`${date - 4} / ${month} / ${year}`);
-        $("#day2").html(`${date - 3} / ${month} / ${year}`);
-        $("#day3").html(`${date - 2} / ${month} / ${year}`);
-        $("#day4").html(`${date - 1} / ${month} / ${year}`);
-        $("#day5").html(`${date} / ${month} / ${year}`);
-        $("#day6").html(`${date + 1} / ${month} / ${year}`);
-    } else if(day == 6) {
-        $("#day1").html(`${date - 5} / ${month} / ${year}`);
-        $("#day2").html(`${date - 4} / ${month} / ${year}`);
-        $("#day3").html(`${date - 3} / ${month} / ${year}`);
-        $("#day4").html(`${date - 2} / ${month} / ${year}`);
-        $("#day5").html(`${date - 1} / ${month} / ${year}`);
-        $("#day6").html(`${date} / ${month} / ${year}`);
-    }
-})
-
-$(".week-two").click(function() {
-  if(day == 1) {
-        var varDate = new Date();
-        var day = varDate.getDay();
-        var date = varDate.getDate();
-        var month = varDate.getMonth();
-        var year = varDate.getFullYear();
-        $("#day1").html(`${date } / ${month + 1} / ${year}`);
-        $("#day2").html(`${date } / ${month + 1} / ${year}`);
-        $("#day3").html(`${date } / ${month + 1} / ${year}`);
-        $("#day4").html(`${date} / ${month + 1} / ${year}`);
-        $("#day5").html(`${date} / ${month + 1} / ${year}`);
-        $("#day6").html(`${date} / ${month + 1} / ${year}`);
-    } else if(day == 2) {
-        $("#day1").html(`${date - 1} / ${month + 1} / ${year}`);
-        $("#day2").html(`${date} / ${month + 1} / ${year}`);
-        $("#day3").html(`${date + 1} / ${month + 1} / ${year}`);
-        $("#day4").html(`${date + 2} / ${month + 1} / ${year}`);
-        $("#day5").html(`${date + 3} / ${month + 1} / ${year}`);
-        $("#day6").html(`${date + 4} / ${month + 1} / ${year}`);
-    } else if(day == 3) {
-        $("#day1").html(`${date - 2} / ${month + 1} / ${year}`);
-        $("#day2").html(`${date - 1} / ${month + 1} / ${year}`);
-        $("#day3").html(`${date} / ${month + 1} / ${year}`);
-        $("#day4").html(`${date + 1} / ${month + 1} / ${year}`);
-        $("#day5").html(`${date + 2} / ${month + 1} / ${year}`);
-        $("#day6").html(`${date + 3} / ${month + 1} / ${year}`);
-    } else if(day == 4) {
-        $("#day1").html(`${date - 3} / ${month + 1} / ${year}`);
-        $("#day2").html(`${date - 2} / ${month + 1} / ${year}`);
-        $("#day3").html(`${date - 1} / ${month + 1} / ${year}`);
-        $("#day4").html(`${date} / ${month + 1} / ${year}`);
-        $("#day5").html(`${date + 1} / ${month + 1} / ${year}`);
-        $("#day6").html(`${date + 2} / ${month + 1} / ${year}`);
-    } else if(day == 5) {
-        $("#day1").html(`${date + 7} / ${month + 1} / ${year}`);
-        $("#day2").html(`${date + 8} / ${month + 1} / ${year}`);
-        $("#day3").html(`${date + 9} / ${month + 1} / ${year}`);
-        $("#day4").html(`${date + 10} / ${month + 1} / ${year}`);
-        $("#day5").html(`${date + 11} / ${month + 1} / ${year}`);
-        $("#day6").html(`${date + 12} / ${month + 1} / ${year}`);
-    } else if(day == 6) {
-        $("#day1").html(`${date - 5} / ${month + 1} / ${year}`);
-        $("#day2").html(`${date - 4} / ${month + 1} / ${year}`);
-        $("#day3").html(`${date - 3} / ${month + 1} / ${year}`);
-        $("#day4").html(`${date - 2} / ${month + 1} / ${year}`);
-        $("#day5").html(`${date - 1} / ${month + 1} / ${year}`);
-        $("#day6").html(`${date} / ${month + 1} / ${year}`);
-    }
-})
 // Monday
 $("#monday11am").click(function() {
+    if(localStorage.getItem("monday11ambo") == "true" == true) {
+        $("#SBM11AMC").removeAttr("disabled");
+    }
     $(".modal-title").text("Schedule Appointment at Monday 11:00 AM");
     var SBM11AMS = `<button class="btn btn-success" id="SBM11AMS">Shudele Appointment</button><br><br>`;
     var SBM11AMC = `<button class="btn btn-danger" disabled id="SBM11AMC">Remove Appointment</button>`;
@@ -271,11 +129,17 @@ $("#monday11am").click(function() {
             slotdate: $("#day1").text(),
             slottime: "11:00 AM"
         })
-        $("#SBM11AMC").removeAttr("disabled");
+
+    localStorage.setItem("monday11ambo", "true");
+    $("#SBM11AMC").removeAttr("disabled");
+    $("#monday11am").css("background", "orange");
     })
 
     $("#SBM11AMC").click(function() {
         firebase.database().ref("slotSBM11AM/").remove()
+        $("#SBM11AMC").attr("disabled");
+    localStorage.removeItem("monday11ambo");
+    $("#monday11am").css("background", "#fff");
     })
 })
 $("#monday12pm").click(function() {
