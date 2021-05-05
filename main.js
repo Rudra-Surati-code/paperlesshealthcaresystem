@@ -58,23 +58,15 @@ $("#submit").click(function() {
     var name = $("#name").val();
     var email = $("#email").val();
 
-    if(localStorage.getItem("person") == null == false) {
-        localStorage.setItem("name", name);
-        localStorage.setItem("email", email);
-        if (localStorage.getItem("person") == "doctor") {
-            window.location = "doctor.html";
-        } else if (localStorage.getItem("person") == "patient") {
-            window.location = "patient.html";
-        } else if (localStorage.getItem("person") == "laboratory") {
-            window.location = "labotatory.html";
-        } else if (localStorage.getItem("person") == "imaginecenter") {
-            window.location = "imaginecenter.html";
-        } else if (localStorage.getItem("person") == "medicalstore") {
-            window.location = "medicalcenter.html";
-        } else if (localStorage.getItem("person") == "others") {
-            window.location = "others.html";
-        }
+    if (localStorage.getItem("person") == null) {
+        $("form").removeAttr("action");
+        $(".error").text("Please Select Who are you")
+    } else {
+        $("form").attr("action", "check.html");
     }
+
+    localStorage.setItem(name, name);
+    localStorage.setItem(email, email);
 })
 
 setTimeout(function() {

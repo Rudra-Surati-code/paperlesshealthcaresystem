@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body onload="check();">
+    
+
+    <script>
+        function check() {
+        if (localStorage.getItem("person") == "doctor") {
+        window.location = "doctor.html";
+    } else if (localStorage.getItem("person") == "patient") {
+        window.location = "patient.html";
+    } else if (localStorage.getItem("person") == "laboratory") {
+        window.location = "labotatory.html";
+    } else if (localStorage.getItem("person") == "imaginecenter") {
+        window.location = "imaginecenter.html";
+    } else if (localStorage.getItem("person") == "medicalstore") {
+        window.location = "medicalcenter.html";
+    } else if (localStorage.getItem("person") == "others") {
+        window.location = "others.html";
+    }
+}
+    </script>
+</body>
+</html>
