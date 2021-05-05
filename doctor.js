@@ -1,5 +1,10 @@
 var preloader = document.getElementById("body");
-
+var d = new Date();
+var day = d.getDay();
+var date = d.getDate();
+var month = d.getMonth() + 1;
+var year = d.getFullYear();
+console.log(d);
 function loading() {
     preloader.style.display = "none";
 }
@@ -96,21 +101,369 @@ $("#gpicr").click(function() {
     });
 });
 
-let newDate = new Date();
-let day = newDate.getDay();
-let date = newDate.getDate();
-let month = newDate.getMonth();
-let year = newDate.getFullYear();
-
 function shudeleAppomentButton() {
     $("#scheduleAppointmentPage").toggleClass("d-none");
     window.location = "#scheduleAppointmentPage";
-    $("#day1").html(`${date} / ${month} / ${year}`);
-    $("#day2").html(`${date + 1} / ${month} / ${year}`);
-    $("#day3").html(`${date + 2} / ${month} / ${year}`);
-    $("#day4").html(`${date + 3} / ${month} / ${year}`);
-    $("#day5").html(`${date + 4} / ${month} / ${year}`);
-    $("#day6").html(`${date + 5} / ${month} / ${year}`);
+
+    if(year == 2021) {
+        if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 )
+        {
+            if (date <=25)
+            {
+                $("#day1").text(`${date} / ${month} / ${year} / ${day}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`${date + 5} / ${month} / ${year}`);
+                $("#day7").text(`${date + 6} / ${month} / ${year}`);
+            }
+            if (date ==26)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`${date + 5} / ${month} / ${year}`);
+                $("#day7").text(`1 / ${month + 1} / ${year}`);
+
+            }
+            if (date ==27)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`1 / ${month + 1} / ${year}`);
+                $("#day7").text(`2 / ${month + 1} / ${year}`); 
+            }  
+            if (date ==28)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`1 / ${month + 1} / ${year}`);
+                $("#day6").text(`2 / ${month + 1} / ${year}`);
+                $("#day7").text(`3 / ${month + 1} / ${year}`); 
+            }
+            if (date ==29)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`1 / ${month + 1} / ${year}`);
+                $("#day5").text(`2 / ${month + 1} / ${year}`);
+                $("#day6").text(`3 / ${month + 1} / ${year}`);
+                $("#day7").text(`4 / ${month + 1} / ${year}`); 
+            }
+            if (date ==30)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`1 / ${month + 1} / ${year}`);
+                $("#day4").text(`2 / ${month + 1} / ${year}`);
+                $("#day5").text(`3 / ${month + 1} / ${year}`);
+                $("#day6").text(`4 / ${month + 1} / ${year}`);
+                $("#day7").text(`5 / ${month + 1} / ${year}`); 
+            }
+            if (date ==31)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`1 / ${month + 1} / ${year}`);
+                $("#day3").text(`2 / ${month + 1} / ${year}`);
+                $("#day4").text(`3 / ${month + 1} / ${year}`);
+                $("#day5").text(`4 / ${month + 1} / ${year}`);
+                $("#day6").text(`5 / ${month + 1} / ${year}`);
+                $("#day7").text(`6 / ${month + 1} / ${year}`); 
+            }
+        }
+        if (month==2 )
+        {
+            if (date <=23)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`${date + 5} / ${month} / ${year}`);
+                $("#day7").text(`${date + 6} / ${month} / ${year}`);
+            }
+            if (date ==24)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`${date + 5} / ${month} / ${year}`);
+                $("#day7").text(`1 / ${month + 1} / ${year}`);
+
+            }
+            if (date ==25)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`1 / ${month + 1} / ${year}`);
+                $("#day7").text(`2 / ${month + 1} / ${year}`); 
+            }  
+            if (date ==26)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`1 / ${month + 1} / ${year}`);
+                $("#day6").text(`2 / ${month + 1} / ${year}`);
+                $("#day7").text(`3 / ${month + 1} / ${year}`); 
+            }
+            if (date ==27)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`1 / ${month + 1} / ${year}`);
+                $("#day5").text(`2 / ${month + 1} / ${year}`);
+                $("#day6").text(`3 / ${month + 1} / ${year}`);
+                $("#day7").text(`4 / ${month + 1} / ${year}`); 
+            }
+            if (date ==28)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`1 / ${month + 1} / ${year}`);
+                $("#day4").text(`2 / ${month + 1} / ${year}`);
+                $("#day5").text(`3 / ${month + 1} / ${year}`);
+                $("#day6").text(`4 / ${month + 1} / ${year}`);
+                $("#day7").text(`5 / ${month + 1} / ${year}`); 
+            }
+            if (date ==29)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`1 / ${month + 1} / ${year}`);
+                $("#day3").text(`2 / ${month + 1} / ${year}`);
+                $("#day4").text(`3 / ${month + 1} / ${year}`);
+                $("#day5").text(`4 / ${month + 1} / ${year}`);
+                $("#day6").text(`5 / ${month + 1} / ${year}`);
+                $("#day7").text(`6 / ${month + 1} / ${year}`); 
+            }
+        }
+        if (month==12 )
+        {
+            if (date <=25)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`${date + 5} / ${month} / ${year}`);
+                $("#day7").text(`${date + 6} / ${month} / ${year}`);
+            }
+            if (date <=26)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`${date + 5} / ${month} / ${year}`);
+                $("#day7").text(`1 / 1 / ${year + 1}`);
+
+            }
+            if (date <=27)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`1 / 1 / ${year + 1}`);
+                $("#day7").text(`2 / 1 / ${year + 1}`); 
+            }  
+            if (date <=28)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`1 / 1 / ${year + 1}`);
+                $("#day6").text(`2 / 1 / ${year + 1}`);
+                $("#day7").text(`3 / 1 / ${year + 1}`); 
+            }
+            if (date <=29)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`1 / 1 / ${year + 1}`);
+                $("#day5").text(`2 / 1 / ${year + 1}`);
+                $("#day6").text(`3 / 1 / ${year + 1}`);
+                $("#day7").text(`4 / 1 / ${year + 1}`); 
+            }
+            if (date <=30)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`1 / 1 / ${year + 1}`);
+                $("#day4").text(`2 / 1 / ${year + 1}`);
+                $("#day5").text(`3 / 1 / ${year + 1}`);
+                $("#day6").text(`4 / 1 / ${year + 1}`);
+                $("#day7").text(`5 / 1 / ${year + 1}`); 
+            }
+            if (date <=31)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`1 / 1 / ${year + 1}`);
+                $("#day3").text(`2 / 1 / ${year + 1}`);
+                $("#day4").text(`3 / 1 / ${year + 1}`);
+                $("#day5").text(`4 / 1 / ${year + 1}`);
+                $("#day6").text(`5 / 1 / ${year + 1}`);
+                $("#day7").text(`6 / 1 / ${year + 1}`); 
+            }
+
+        }
+        if (month==4 || month==6 || month==9 || month==11 )
+        {
+            if (date <=24)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 3} / ${month} / ${year}`);
+                $("#day5").text(`${date + 4} / ${month} / ${year}`);
+                $("#day6").text(`${date + 5} / ${month} / ${year}`);
+                $("#day7").text(`${date + 6} / ${month} / ${year}`);
+            }
+            if (date ==25)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 4} / ${month} / ${year}`);
+                $("#day5").text(`${date + 5} / ${month} / ${year}`);
+                $("#day6").text(`${date + 6} / ${month} / ${year}`);
+                $("#day7").text(`1 / ${month + 1} / ${year}`);
+
+            }
+            if (date ==26)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 4} / ${month} / ${year}`);
+                $("#day5").text(`${date + 5} / ${month} / ${year}`);
+                $("#day6").text(`1 / ${month + 1} / ${year}`);
+                $("#day7").text(`2 / ${month + 1} / ${year}`); 
+            }  
+            if (date ==27)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`${date + 4} / ${month} / ${year}`);
+                $("#day5").text(`1 / ${month + 1} / ${year}`);
+                $("#day6").text(`2 / ${month + 1} / ${year}`);
+                $("#day7").text(`3 / ${month + 1} / ${year}`); 
+            }
+            if (date ==28)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`${date + 2} / ${month} / ${year}`);
+                $("#day4").text(`1 / ${month + 1} / ${year}`);
+                $("#day5").text(`2 / ${month + 1} / ${year}`);
+                $("#day6").text(`3 / ${month + 1} / ${year}`);
+                $("#day7").text(`4 / ${month + 1} / ${year}`); 
+            }
+            if (date ==29)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`${date + 1} / ${month} / ${year}`);
+                $("#day3").text(`1 / ${month + 1} / ${year}`);
+                $("#day4").text(`2 / ${month + 1} / ${year}`);
+                $("#day5").text(`3 / ${month + 1} / ${year}`);
+                $("#day6").text(`4 / ${month + 1} / ${year}`);
+                $("#day7").text(`5 / ${month + 1} / ${year}`); 
+            }
+            if (date ==30)
+            {
+                $("#day1").text(`${date} / ${month} / ${year}`);
+                $("#day2").text(`1 / ${month + 1} / ${year}`);
+                $("#day3").text(`2 / ${month + 1} / ${year}`);
+                $("#day4").text(`3 / ${month + 1} / ${year}`);
+                $("#day5").text(`4 / ${month + 1} / ${year}`);
+                $("#day6").text(`5 / ${month + 1} / ${year}`);
+                $("#day7").text(`6 / ${month + 1} / ${year}`); 
+            }
+           
+           
+        }
+    }
+// 
+    // 
+    // if(day == 1) {
+    //     $("#day1").text(`${date} / ${month} / ${year}`);
+    //     $("#day2").text(`${date + 1} / ${month} / ${year}`);
+    //     $("#day3").text(`${date + 2} / ${month} / ${year}`);
+    //     $("#day4").text(`${date + 4} / ${month} / ${year}`);
+    //     $("#day5").text(`${date + 5} / ${month} / ${year}`);
+    //     $("#day6").text(`${date + 6} / ${month} / ${year}`);
+    // }
+    // if(day == 2) {
+    //     $("#day1").text(`${date - 1} / ${month} / ${year}`); 
+    //     $("#day2").text(`${date} / ${month} / ${year}`);
+    //     $("#day3").text(`${date + 1} / ${month} / ${year}`);
+    //     $("#day4").text(`${date + 2} / ${month} / ${year}`);
+    //     $("#day5").text(`${date + 3} / ${month} / ${year}`);
+    //     $("#day6").text(`${date + 4} / ${month} / ${year}`);
+    // }
+    // if(day == 3) {
+    //     $("#day1").text(`${date - 2} / ${month} / ${year}`);
+    //     $("#day2").text(`${date - 1} / ${month} / ${year}`);
+    //     $("#day3").text(`${date} / ${month} / ${year}`);
+    //     $("#day4").text(`${date + 1} / ${month} / ${year}`);
+    //     $("#day5").text(`${date + 2} / ${month} / ${year}`);
+    //     $("#day6").text(`${date + 3} / ${month} / ${year}`);
+    // }
+    // if(day == 4) {
+    //     $("#day1").text(`${date - 3} / ${month} / ${year}`);
+    //     $("#day2").text(`${date - 2} / ${month} / ${year}`);
+    //     $("#day3").text(`${date - 1} / ${month} / ${year}`);
+    //     $("#day4").text(`${date} / ${month} / ${year}`);
+    //     $("#day5").text(`${date + 1} / ${month} / ${year}`);
+    //     $("#day6").text(`${date + 2} / ${month} / ${year}`);
+    // }
+    // if(day == 5) {
+    //     $("#day1").text(`${date - 4} / ${month} / ${year}`);
+    //     $("#day2").text(`${date - 2} / ${month} / ${year}`);
+    //     $("#day3").text(`${date - 2} / ${month} / ${year}`);
+    //     $("#day4").text(`${date - 1} / ${month} / ${year}`);
+    //     $("#day5").text(`${date} / ${month} / ${year}`);
+    //     $("#day6").text(`${date + 1} / ${month} / ${year}`);
+    // }
+    // if(day == 6) {
+    //     $("#day1").text(`${date - 5} / ${month} / ${year}`);
+    //     $("#day2").text(`${date - 4} / ${month} / ${year}`);
+    //     $("#day3").text(`${date - 3} / ${month} / ${year}`);
+    //     $("#day4").text(`${date - 2} / ${month} / ${year}`);
+    //     $("#day5").text(`${date - 1} / ${month} / ${year}`);
+    //     $("#day6").text(`${date} / ${month} / ${year}`);
+    // }
+    // if(day == 7) {
+    //     $("#day1").text(`${date - 6} / ${month} / ${year}`);
+    //     $("#day2").text(`${date - 5} / ${month} / ${year}`);
+    //     $("#day3").text(`${date - 4} / ${month} / ${year}`);
+    //     $("#day4").text(`${date - 3} / ${month} / ${year}`);
+    //     $("#day5").text(`${date - 2} / ${month} / ${year}`);
+    //     $("#day6").text(`${date - 1} / ${month} / ${year}`);
+    // }
     if (localStorage.getItem("monday11ambo") == "true" == true) {
         $("#monday11am").css("background", "orange");
     }
@@ -162,8 +515,14 @@ function shudeleAppomentButton() {
     if (localStorage.getItem("saturaday1pmbo") == "true" == true) {
         $("#saturaday1pm").css("background", "orange");
     }
+    if(localStorage.getItem("sunday1pmbo") == "true" == true) {
+        $("#sunday1pm").css("background", "orange");
+    }
     if (localStorage.getItem("saturaday2pmbo") == "true" == true) {
         $("#saturaday2pm").css("background", "orange");
+    }
+    if(localStorage.getItem("sunday2pmbo") == "true" == true) {
+        $("#sunday2pm").css("background", "orange");
     }
     if(localStorage.getItem("friday11ambo") == "true" == true) {
         $("#friday11am").css("background", "orange");
@@ -176,6 +535,12 @@ function shudeleAppomentButton() {
     }
     if(localStorage.getItem("friday2pmbo") == "true" == true) {
         $("friday2pm").css("background", "orange");
+    }
+    if(localStorage.getItem("sunday11ambo") == "true" == true) {
+        $("#sunday11am").css("background", "orange");
+    }
+    if(localStorage.getItem("sunday12pmbo") == "true" == true) {
+        $("#sunday12pm").css("background", "orange");
     }
 }
 // Monday
@@ -707,6 +1072,108 @@ $("#friday2pm").click(function() {
     })
 })
 
+// Sunday
+$("#sunday11am").click(function() {
+    $(".modal-title").html(`Schedule Appointment at ${$("#day7").text()} AM`);
+    var SBSU11AMS = `<button class="btn btn-success" id="SBSU11AMS">Shudele Appointment</button><br><br>`;
+    var SBSU11AMC = `<button class="btn btn-danger" id="SBSU11AMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBSU11AMS + SBSU11AMC);
+
+    $("#SBSU11AMS").click(function() {
+        firebase.database().ref("slotSBSU11AM/").set({
+            slotdate: $("#day7").text(),
+            slottime: "11:00 AM"
+        })
+        $("#sunday11am").css("background", "orange");
+
+        localStorage.setItem("sunday11ambo", "true");
+        $("#sunday11am").css("background", "orange");
+    })
+
+    $("#SBSU11AMC").click(function() {
+        firebase.database().ref("slotSBSU11AM/").remove()
+        localStorage.removeItem("sunday11ambo");
+        $("#sunday11am").css("background", "#fff");
+    })
+})
+$("#sunday12pm").click(function() {
+    $(".modal-title").html(`Schedule Appointment at ${$("#day7").text()} 12:00 PM`);
+    var SBSU12PMS = `<button class="btn btn-success" id="SBSU12PMS">Shudele Appointment</button><br><br>`;
+    var SBSU12PMC = `<button class="btn btn-danger" id="SBSU12PMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBSU12PMS + SBSU12PMC);
+
+    $("#SBSU12PMS").click(function() {
+        firebase.database().ref("slotSBSU12PM/").set({
+            slotdate: $("#day7").text(),
+            slottime: "12:00 PM"
+        })
+        localStorage.setItem("sunday12pmbo", "true");
+        $("#sunday12pm").css("background", "orange");
+    })
+
+    $("#SBSU12PMC").click(function() {
+        firebase.database().ref("slotSBSU12PM/").remove();
+        localStorage.removeItem("sunday12pmbo");
+        $("#sunday12pm").css("background", "#fff");
+    })
+})
+$("#sunday1pm").click(function() {
+    $(".modal-title").html(`Schedule Appointment at ${$("#day7").text()} 01:00 PM`);
+    var SBSU01PMS = `<button class="btn btn-success" id="SBSU01PMS">Shudele Appointment</button><br><br>`;
+    var SBSU01PMC = `<button class="btn btn-danger" id="SBSU01PMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBSU01PMS + SBSU01PMC);
+
+    $("#SBSU01PMS").click(function() {
+        firebase.database().ref("slotSBSU01PM/").set({
+            slotdate: $("#day7").text(),
+            slottime: "01:00 PM"
+        })
+        localStorage.setItem("sunday1pmbo", "true");
+        $("#sunday1pm").css("background", "orange");
+    })
+
+    $("#SBSU01PMC").click(function() {
+        firebase.database().ref("slotSBSU01PM/").remove();
+        localStorage.removeItem("sunday1pmbo");
+        $("#sunday1pm").css("background", "#fff");
+    })
+})
+$("#sunday2pm").click(function() {
+    $(".modal-title").html(`Schedule Appointment at ${$("#day7").text()} 02:00 AM`);
+    var SBSU02PMS = `<button class="btn btn-success" id="SBSU02PMS">Shudele Appointment</button><br><br>`;
+    var SBSU02PMC = `<button class="btn btn-danger" id="SBSU02PMC">Remove Appointment</button>`;
+    $(".modal-body").append(SBSU02PMS + SBSU02PMC);
+
+    $("#SBSU02PMS").click(function() {
+        firebase.database().ref("slotSBSU02PM/").set({
+            slotdate: $("#day7").text(),
+            slottime: "02:00 AM"
+        })
+        localStorage.setItem("sunday2pmbo", "true");
+        $("#sunday2pm").css("background", "orange");
+    })
+
+    $("#SBSU02PMC").click(function() {
+        firebase.database().ref("slotSBSU02PM/").remove();
+        localStorage.removeItem("sunday2pmbo");
+        $("#sunday2pm").css("background", "#fff");
+    })
+})
+
 $(".cls").click(function() {
     $(".modal-body").empty();
 });
+
+$(".room-id-btn").click(function() {
+    if($(".room-id-input").val() == "") {
+        $(".riE").text("Please enter a room ID");
+    } else {
+        firebase.database().ref("room-id").set({
+            id: $(".room-id-input").val()
+        })
+        $(".room_id").addClass("d-none");
+        $("#sh").toggleClass("d-none");
+        window.location = "#sh";
+        localStorage.setItem("sh", "true");
+    }
+})

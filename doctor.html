@@ -214,22 +214,18 @@
             <iframe src="" style="width: 300px; height: 500px; border: 2px solid orange;" id="gpicr-report-iframe"></iframe>
         </div>
         <div style="width: 100%; height: 100vh; overflow-x: hidden; text-align: center; background: #eee;" id="scheduleAppointmentPage" class="d-none">
-            <h4> Schedule An Appointment</h4>
+            <div>
+                <h4> Schedule An Appointment</h4>
             <br>
             <br>
             <br>
-            <span style="justify-content: center;">
-            <button style="color: rgb(177, 115, 0); padding: 10px;" class="week-one">Week 1</button>
-            <button style="color: rgb(177, 115, 0); padding: 10px;" class="week-two">Week 2</button>
-            <button style="color: rgb(177, 115, 0); padding: 10px;" class="week-three">Week 3</button>
-            <button style="color: rgb(177, 115, 0); padding: 10px;" class="week-four">Week 4</button>
-            </span>
+            <h4>Weekly Schedule</h4>
             <br>
             <br>
             <div class="weeks">
-                <p id="day1" style="position: relative; left: -80px; top: 40px;">1 / 6 / 2021</p>
+                <p id="day1" style="position: relative; left: -80px; top: 40px;"></p>
                 <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;">Monday</p>
+                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
                 <br>
                 <br>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="monday11am"> 11:AM</button>
@@ -237,9 +233,9 @@
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="monday1pm">01:PM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="monday2pm">02:PM</button>
                 <br>
-                <p id="day2" style="position: relative; left: -80px; top: 40px;">2 / 6 / 2021</p>
+                <p id="day2" style="position: relative; left: -80px; top: 40px;"></p>
                 <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;">Tuesday</p>
+                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
                 <br>
                 <br>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="tuesday11am">11:AM</button>
@@ -247,9 +243,9 @@
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="tuesday1pm">01:PM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="tuesday2pm">02:PM</button>
                 <br>
-                <p id="day3" style="position: relative; left: -80px; top: 40px;">3 / 5 / 2021</p>
+                <p id="day3" style="position: relative; left: -80px; top: 40px;"></p>
                 <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;">Wednesday</p>
+                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
                 <br>
                 <br>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="wednesday11am">11:AM</button>
@@ -257,9 +253,9 @@
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="wednesday1pm">01:PM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="wednesday2pm">02:PM</button>
                 <br>
-                <p id="day4" style="position: relative; left: -80px; top: 40px;">27 / 4 / 2021</p>
+                <p id="day4" style="position: relative; left: -80px; top: 40px;"></p>
                 <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;">Thursday</p>
+                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
                 <br>
                 <br>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="thursday11am">11:AM</button>
@@ -267,9 +263,9 @@
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="thursday1pm">01:PM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="thursday2pm">02:PM</button>
                 <br>
-                <p id="day5" style="position: relative; left: -80px; top: 40px;">27 / 4 / 2021</p>
+                <p id="day5" style="position: relative; left: -80px; top: 40px;"></p>
                 <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;">Firday</p>
+                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
                 <br>
                 <br>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="friday11am">11:AM</button>
@@ -277,15 +273,26 @@
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="friday1pm">01:PM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="friday2pm">02:PM</button>
                 <br>
-                <p id="day6" style="position: relative; left: -80px; top: 40px;">27 / 4 / 2021</p>
+                <p id="day6" style="position: relative; left: -80px; top: 40px;">2</p>
                 <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;">Saturaday</p>
+                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
                 <br>
                 <br>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday11am">11:AM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday12pm">12:PM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday1pm">01:PM</button>
                 <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday2pm">02:PM</button>
+                <br>
+                <p id="day7" style="position: relative; left: -80px; top: 40px;"></p>
+                <br>
+                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
+                <br>
+                <br>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday11am">11:AM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday12pm">12:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday1pm">01:PM</button>
+                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday2pm">02:PM</button>
+            </div>
             </div>
             </div>
 

@@ -24,22 +24,31 @@ $(".gh").click(function() {
 
 $(".doctor").click(function() {
     localStorage.setItem("person", "doctor");
+    $(".show").text("Doctor");
 });
 
 $(".patient").click(function() {
     localStorage.setItem("person", "patient");
+    $(".show").text("Patient");
 });
 
 $(".laboratory").click(function() {
     localStorage.setItem("person", "laboratory");
+    $(".show").text("Laboratory");
 });
 
 $(".imaginecenter").click(function() {
     localStorage.setItem("person", "imaginecenter");
+    $(".show").text("Imagine Center");
+
 });
 
 $(".medicalstore").click(function() {
     localStorage.setItem("person", "medicalstore");
+    $(".show").text("Doctor");
+});
+$(".others").click(function() {
+    $(".show").text("Future Scope");
 });
 
 $("#submit").click(function() {
