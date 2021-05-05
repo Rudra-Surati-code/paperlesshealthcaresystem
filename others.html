@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Less Health Care System</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div style="width: 100%; overflow: hidden">
+    <button style="padding: 10px;" class="logout">Logout</button>
+    <h1 style="font-size: 20px;">
+        Future Scope: <br><br>
+            • This application will be available for multiple country, multiply city, multiple hospital,
+              Multiple medical store, multiple laboratories, multiple imagine center… 
+              <br>
+              <br>
+            • This application will be available for online treatment from the doctors. Thru the video calling.
+            <br>
+            <br>
+            • This application will be available for Ayurveda and homeopathy treatment guidelines & information.
+            <br>
+            <br>
+            • Different disease information available with this app
+            <br>
+            <br>
+            • Different type of yoga information and guidelines, yoga classes will be available with this application
+            <br>
+            <br>
+            • Medicine availability at different Medical stores
+            <br>
+            <br>
+            • This application will be available for Information and guideline on Personal hygiene   
+    </h1>
+</div>
+    <script>
+        $(document).ready(function() {
+            $(".logout").click(function() {
+                localStorage.clear();
+                window.location = "index.html";
+            })
+        })
+    </script>
+</body>
+</html>

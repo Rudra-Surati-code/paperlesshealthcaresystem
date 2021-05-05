@@ -13,8 +13,10 @@ function loading() {
         window.location = "imaginecenter.html";
     } else if (localStorage.getItem("person") == "medicalstore") {
         window.location = "medicalcenter.html";
+    } else if (localStorage.getItem("person") == "others") {
+        window.location = "others.html";
     }
-    }
+}
 }
 
 $(".gh").click(function() {
@@ -48,20 +50,15 @@ $(".medicalstore").click(function() {
     $(".show").text("Doctor");
 });
 $(".others").click(function() {
-    $(".show").text("Future Scope");
+    localStorage.setItem("person", "others");
+    $(".show").text("Future Scope")
 });
 
 $("#submit").click(function() {
     var name = $("#name").val();
     var email = $("#email").val();
 
-    if (name == "") {
-        $(".error").text("Please enter a name");
-    } else if (email == "") {
-        $(".error").text("Please enter an email");
-    } else if (localStorage.getItem("person") == null) {
-        $(".error").text("Please Select Who are you")
-    } else {
+    if(localStorage.getItem("person") == null == false) {
         localStorage.setItem("name", name);
         localStorage.setItem("email", email);
         if (localStorage.getItem("person") == "doctor") {
@@ -74,6 +71,8 @@ $("#submit").click(function() {
             window.location = "imaginecenter.html";
         } else if (localStorage.getItem("person") == "medicalstore") {
             window.location = "medicalcenter.html";
+        } else if (localStorage.getItem("person") == "others") {
+            window.location = "others.html";
         }
     }
 })
