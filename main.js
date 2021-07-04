@@ -1,74 +1,17 @@
-var preloader = document.getElementById("body");
+const firebaseConfig = {
+    apiKey: "AIzaSyCk5s2RXo09ai0yHEvv8PVC7P_FsgA0dJk",
+    authDomain: "paper-less-sign-in-and-sign-up.firebaseapp.com",
+    databaseURL: "https://paper-less-sign-in-and-sign-up-default-rtdb.firebaseio.com",
+    projectId: "paper-less-sign-in-and-sign-up",
+    storageBucket: "paper-less-sign-in-and-sign-up.appspot.com",
+    messagingSenderId: "706828671055",
+    appId: "1:706828671055:web:133a0e1193fa42aeb9f23a",
+    measurementId: "G-7G58N240JQ"
+};
 
-function loading() {
-    preloader.style.display = "none";
-    if(localStorage.getItem("name") == null == false && localStorage.getItem("email") == null == false) {
-        if (localStorage.getItem("person") == "doctor") {
-        window.location = "doctor.html";
-    } else if (localStorage.getItem("person") == "patient") {
-        window.location = "patient.html";
-    } else if (localStorage.getItem("person") == "laboratory") {
-        window.location = "labotatory.html";
-    } else if (localStorage.getItem("person") == "imaginecenter") {
-        window.location = "imaginecenter.html";
-    } else if (localStorage.getItem("person") == "medicalstore") {
-        window.location = "medicalcenter.html";
-    } else if (localStorage.getItem("person") == "others") {
-        window.location = "others.html";
-    }
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+function submit() {
+    console.log("success")
 }
-}
-
-$(".gh").click(function() {
-    $(".gj").toggleClass("d-none");
-    $(".gjffj").toggleClass("d-none");
-})
-
-$(".doctor").click(function() {
-    localStorage.setItem("person", "doctor");
-    $(".show").text("Doctor");
-});
-
-$(".patient").click(function() {
-    localStorage.setItem("person", "patient");
-    $(".show").text("Patient");
-});
-
-$(".laboratory").click(function() {
-    localStorage.setItem("person", "laboratory");
-    $(".show").text("Laboratory");
-});
-
-$(".imaginecenter").click(function() {
-    localStorage.setItem("person", "imaginecenter");
-    $(".show").text("Imagine Center");
-
-});
-
-$(".medicalstore").click(function() {
-    localStorage.setItem("person", "medicalstore");
-    $(".show").text("Doctor");
-});
-$(".others").click(function() {
-    localStorage.setItem("person", "others");
-    $(".show").text("Future Scope")
-});
-
-$("#submit").click(function() {
-    var name = $("#name").val();
-    var email = $("#email").val();
-
-    if (localStorage.getItem("person") == null) {
-        $("form").removeAttr("action");
-        $(".error").text("Please Select Who are you")
-    } else {
-        $("form").attr("action", "check.html");
-    }
-
-    localStorage.setItem(name, name);
-    localStorage.setItem(email, email);
-})
-
-setTimeout(function() {
-    $("#welcome").css("display", "none");
-}, 3000)
