@@ -12,6 +12,25 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+const procress = () => {
+    document.querySelector(".loader").classList.add("d-none")
+    if(localStorage.getItem("email") == null) {
+        console.log("paper less")
+    } else {
+        if(localStorage.getItem("who") == "Doctor") {
+            location.replace("doctor.html")
+        } else if (localStorage.getItem("who") == "Imagine Center") {
+            location.replace("imaginecenter.html")
+        } else if (localStorage.getItem("who") == "Laboratory") {
+            location.replace("laboratory.html")
+        } else if(localStorage.getItem("who") == "Medical Center") {
+            location.replace("medicalcenter.html")
+        } else {
+            location.replace("patient.html")
+        }
+    }
+}
+
 const submit = () => {
     var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
 	var letters = /^[A-Za-z]+$/;
@@ -27,28 +46,40 @@ const submit = () => {
     } else if (localStorage.getItem("who") == null) {
         document.querySelector(".error").innerHTML = "Please Select Who are You"
     } else {
-        setInterval(checkSubmit(), 1000);
-    }
-}
-
-function checkSubmit() {
-    var repla = document.querySelector("#email").value.replace("@", "adh").replace(".", "dot");
-    firebase.database().ref(repla).set({
-        name: `${document.getElementById("fname").value} ${document.getElementById("lname").value}`,
-        email: document.getElementById("email").value,
-        password: document.getElementById("pass").value,
-        who: localStorage.getItem("who"),
-    })
-    document.querySelector(".spinner-border").classList.remove("d-none")
-
-    if(localStorage.getItem("firebase:previous_websocket_failure") == "true") {
-        document.querySelector(".spinner-border").classList.remove("d-none")
-    } else {
-        document.querySelector(".spinner-border").classList.add("d-none")
-        localStorage.setItem('name', `${document.getElementById("fname").value} ${document.getElementById("lname").value}`)
-        localStorage.setItem('email', document.getElementById("email").value)
-        localStorage.setItem("password", document.getElementById("pass").value)
-        location.replace("index.html")
+        var replies = document.querySelector("#email").value.replace("@", "adh").replace(".", "dot");
+        firebase.database().ref("Configration Database"+"/").child(replies).on("value", (snapshot) => {
+            if (snapshot.exists()) {
+              document.querySelector(".error").innerHTML = "This email has already exist! Please Select The Different Email"
+            } else {
+                var repla = document.querySelector("#email").value.replace("@", "adh").replace(".", "dot");
+                document.querySelector(".error").innerHTML = ""
+                firebase.database().ref("Configration Database").child(repla).set({
+                    name: `${document.getElementById("fname").value} ${document.getElementById("lname").value}`,
+                    email: document.getElementById("email").value,
+                    password: document.getElementById("pass").value,
+                    who: localStorage.getItem("who"),
+                })
+                document.querySelector(".spinner-border").classList.remove("d-none")
+                localStorage.setItem('name', `${document.getElementById("fname").value} ${document.getElementById("lname").value}`)
+                localStorage.setItem('email', document.getElementById("email").value)
+                localStorage.setItem("password", document.getElementById("pass").value)
+                document.querySelector(".error").innerHTML = "";
+        
+                setTimeout(function(){ 
+                    if(localStorage.getItem("who") == "Doctor") {
+                        location.replace("doctor.html")
+                    } else if (localStorage.getItem("who") == "Imagine Center") {
+                        location.replace("imaginecenter.html")
+                    } else if (localStorage.getItem("who") == "Laboratory") {
+                        location.replace("laboratory.html")
+                    } else if(localStorage.getItem("who") == "Medical Center") {
+                        location.replace("medicalcenter.html")
+                    } else {
+                        location.replace("patient.html")
+                    }
+                 }, 10000);
+            }
+        })
     }
 }
 

@@ -1,320 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Paper Less</title>
-        <link rel="stylesheet" href="doctor.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- Popper JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!--  -->
-        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
-        <style>
-            button {
-                background: transparent;
-                border: none;
-                outline: none;
-            }
-        </style>
-    </head>
-    <body onload="loading()">
-        <div id="body">
-            <div class="preloader" id="preloader">
-                <div class="preloader__ring">
-                    <div class="preloader__sector">L</div>
-                    <div class="preloader__sector">o</div>
-                    <div class="preloader__sector">a</div>
-                    <div class="preloader__sector">d</div>
-                    <div class="preloader__sector">i</div>
-                    <div class="preloader__sector">n</div>
-                    <div class="preloader__sector">g</div>
-                    <div class="preloader__sector">.</div>
-                    <div class="preloader__sector">.</div>
-                    <div class="preloader__sector">.</div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                </div>
-                <div class="preloader__ring">
-                    <div class="preloader__sector">P</div>
-                    <div class="preloader__sector">l</div>
-                    <div class="preloader__sector">e</div>
-                    <div class="preloader__sector">a</div>
-                    <div class="preloader__sector">s</div>
-                    <div class="preloader__sector">e</div>
-                    <div class="preloader__sector"> </div>
-                    <div class="preloader__sector">w</div>
-                    <div class="preloader__sector">a</div>
-                    <div class="preloader__sector">i</div>
-                    <div class="preloader__sector">t</div>
-                    <div class="preloader__sector">.</div>
-                    <div class="preloader__sector">.</div>
-                    <div class="preloader__sector">.</div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                    <div class="preloader__sector"></div>
-                </div>
-            </div>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Doctor</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <button class="nav-link" style="background: transparent; border: none; outline: none;">Home <span class="sr-only">(current)</span></button>
-                    </li>
-                    <li class="nav-item active">
-                        <button style="background: transparent; border: none; outline: none;" id="gplr" class="nav-link">Get Patient Laboratory Report</button>
-                    </li>
-                    <li class="nav-item active">
-                        <button style="background: transparent; border: none; outline: none;" id="gpicr" class="nav-link">Get Patient Imagine Center Report</button>
-                    </li>
-                    <li class="nav-item active">
-                        <button style="background: transparent; border: none; outline: none;" onclick="logout()" class="nav-link">Logout</button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Less Health Care System</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="Logo.png" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+  <!-- Style ( Custom ) -->
+  <link rel="stylesheet" href="doctor.css">
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body onload='procress()'>
 
-        <div class="buttons" style=" width: 100%; height: 80vh; overflow: hidden; text-align: center; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-            <button onclick="fetchAllData()" class="rainbow-button opd-button" alt="OPD"></button>
-            <br>
-            <button class="treatment-button rainbow-button" alt="Treatment"></button>
-        </div>  
-        <div style="width: 100%; height: 100vh; background: #eff;" class="d-none" id="treatment">
-            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; overflow-x: hidden;">
-                <br>
-                <h4>Prescription</h4>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <button class="treatment-medicine-button rainbow-button" onclick="document.getElementById('prescriptionMedicine').classList.remove('d-none'); window.location = '#prescriptionMedicine';" alt="Prescription - Medicine"></button>
-                <br>
-                <button class="treatment-laboratory rainbow-button" onclick="document.getElementById('prescriptionLaboratory').classList.remove('d-none'); window.location = '#prescriptionLaboratory';" alt="Prescription- laboratory"></button>
-                <br>
-                <button class="treatment-imaginecenter rainbow-button" onclick="document.getElementById('prescriptionImagineCenter').classList.remove('d-none'); window.location = '#prescriptionImagineCenter';" alt="Prescription - ImagineCenter"></button>
-            </div>
-        </div>
-        <br><br>
-        <br>
-        <div style="width: 100%; height: 100vh; text-align: center; overflow-x: hidden;" class="d-none" id="prescriptionMedicine">
-            <br>
-            <h4>Prescription Medicine</h4>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="form form-field hid">
-                <label>
-                    <span>Please Enter Medicine and Others Things <br> Which should be send to Medical Store and Patient</span>
-                    <textarea id="prescriptionMedicineInput"></textarea>
-                </label>
-                <br>
-                <button onclick="prescriptionMedicineSend()" style="font-size: 15px; background: #0091EB; padding: 20px 40px; color: #fff;">Send</button>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div style="width: 100%; height: 100vh; text-align: center; overflow-x: hidden;" class="d-none" id="prescriptionLaboratory">
-            <br>
-            <h4>Prescription Laboratory</h4>
-            <br>
-            <br>
-            <div class="form form-field">
-                <label>
-                    <span><b>Please Enter Required Laboratory <br> Test Report Which should be send to Laboratory and Patient</b></span>
-                    <textarea id="prescriptionLaboratoryInput"></textarea>
-                </label>
-                <br>
-                <button onclick="prescriptionLaboratorySend()" style="font-size: 15px; background: #0091EB; padding: 20px 40px; color: #fff;">Send</button>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div style="width: 100%; height: 100vh; text-align: center; overflow-x: hidden;" class="d-none" id="prescriptionImagineCenter">
-            <br>
-            <h4>Prescription Imagine Center</h4>
-            <br>
-            <br>
-            <div class="form form-field">
-                <label>
-                    <span><b>Please Enter Required X-ray, CTScan <br> and Others Report Which should be send to Imagine Center and Patient</b></span>
-                    <textarea id="prescriptionImagineCenterInput"></textarea>
-                </label>
-                <br>
-                <button onclick="prescriptionImagineCenterSend()" style="font-size: 15px; background: #0091EB; padding: 20px 40px; color: #fff;">Send</button>
-            </div>
-        </div>
-        <div style="width: 100%; height: 100vh; background: #eee; overflow-x: hidden;" class="d-none" id="opd">
-            <ul style="border: 2px solid #eff;">
-                <h4>Appointment List</h4>
-                <br>
-                <li><h6 id="Name"></h6></li>
-                <li><h6 id="Phone"></h6></li>
-                <li><h6 id="Email"></h6></li>
-                <br>
-                <span class="button-take"></span>
-            </ul>
-        </div>
-        <div id="gplr-report" style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;" class="d-none">
-            <iframe src="" style="width: 300px; height: 500px; border: 2px solid orange;" id="gplr-report-iframe"></iframe>
-        </div>
-        <div id="gpicr-report" style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;" class="d-none">
-            <iframe src="" style="width: 300px; height: 500px; border: 2px solid orange;" id="gpicr-report-iframe"></iframe>
-        </div>
-        <div style="width: 100%; height: 100vh; overflow-x: hidden; text-align: center; background: #eee;" id="scheduleAppointmentPage" class="d-none">
-            <div>
-                <h4> Schedule An Appointment</h4>
-            <br>
-            <br>
-            <br>
-            <h4>Weekly Schedule</h4>
-            <br>
-            <br>
-            <div class="weeks">
-                <p id="day1" style="position: relative; left: -80px; top: 40px;"></p>
-                <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
-                <br>
-                <br>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="monday11am"> 11:AM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="monday12pm">12:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="monday1pm">01:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="monday2pm">02:PM</button>
-                <br>
-                <p id="day2" style="position: relative; left: -80px; top: 40px;"></p>
-                <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
-                <br>
-                <br>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="tuesday11am">11:AM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="tuesday12pm">12:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="tuesday1pm">01:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="tuesday2pm">02:PM</button>
-                <br>
-                <p id="day3" style="position: relative; left: -80px; top: 40px;"></p>
-                <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
-                <br>
-                <br>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="wednesday11am">11:AM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="wednesday12pm">12:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="wednesday1pm">01:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="wednesday2pm">02:PM</button>
-                <br>
-                <p id="day4" style="position: relative; left: -80px; top: 40px;"></p>
-                <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
-                <br>
-                <br>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="thursday11am">11:AM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="thursday12pm">12:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="thursday1pm">01:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="thursday2pm">02:PM</button>
-                <br>
-                <p id="day5" style="position: relative; left: -80px; top: 40px;"></p>
-                <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
-                <br>
-                <br>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="friday11am">11:AM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="friday12pm">12:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="friday1pm">01:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="friday2pm">02:PM</button>
-                <br>
-                <p id="day6" style="position: relative; left: -80px; top: 40px;">2</p>
-                <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
-                <br>
-                <br>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday11am">11:AM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday12pm">12:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday1pm">01:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="saturaday2pm">02:PM</button>
-                <br>
-                <p id="day7" style="position: relative; left: -80px; top: 40px;"></p>
-                <br>
-                <p style="color: gray; font-size: 15px; margin-right: 200px;" class="day"></p>
-                <br>
-                <br>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday11am">11:AM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday12pm">12:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday1pm">01:PM</button>
-                <button style="color: black; padding: 7px; border: 2px solid orange; position: relative; bottom: 55px; right: -5px;"  data-toggle="modal" data-target="#myModal" id="sunday2pm">02:PM</button>
-            </div>
-            </div>
-            </div>
+  <div class="loader"></div>
 
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title mr-auto"></h4>
-                      <button type="button" class="close ml-auto cls" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger cls" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-              <script src="jquery.min.js"></script>
-        <script src="doctor.js"></script>
-    </body>
+    <div class="header">
+        <span class="name">
+            <span class="hello">Hello, </span>
+            <span class="username">Rudra Surati</span>
+            <span style="position: absolute; top: 100px; left: 30px;">Jewan Joyt Hospital</span>
+        </span>
+
+        <h1 class="userlogo">R</h1>
+
+        <div class="bottom-navigation">
+          <div><i class="fas fa-home ni active"></i></div>
+          <div><i class="fas fa-calendar-alt ni"></i></div>
+          <div><i class="fas fa-plus-square ni"></i></div>
+          <div><i class="fas fa-phone-alt ni"></i></div>
+        </div>
+    </div>
+
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js" ></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+  <script src="patient.js"></script>
+</body>
 </html>

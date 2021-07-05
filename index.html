@@ -15,12 +15,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
   <!-- Style ( Custom ) -->
   <link rel="stylesheet" href="style.css">
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 </head>
-<body onload='document.querySelector(".loader").classList.add("d-none")'>
+<body onload='procress()'>
 
   <div class="loader"></div>
   
@@ -35,7 +31,7 @@
   
     <!-- Password input -->
     <div class="form-outline mb-4">
-      <input type="password" disabled id="pass" class="form-control text-white" />
+      <input type="password" id="pass" class="form-control text-white" />
       <label class="form-label text-white" for="form2Example2">Password</label>
     </div>
   
@@ -70,12 +66,17 @@
       </div>
     </div>
 
+    <div class="error text-danger"></div>
+
     <label>Do not have an Account <a href="sign up.html" class="text-success">Sign Up</a></label>
   </form>
 
-  <script src="main.js"></script>
-
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js" ></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
