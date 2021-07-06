@@ -29,6 +29,25 @@ const procress = () => {
             location.replace("patient.html")
         }
     }
+
+    async function fetchCountriesAPI() {
+        let response = await fetch("https://restcountries.eu/rest/v2/all");
+        let data = await response.text();
+        let array = JSON.parse(data)
+    
+        let keys = Object.keys(array);
+        for (let i = 0; i < keys.length; i++) {
+            let val = array[keys[i]];
+            $(".cn").append(`<li class="dropdown-item lucario">${val.name}</li>`);
+
+            $('li[class*="lucario"]').click(function() {
+                localStorage.setItem("location", this.textContent);
+                $("#countries").html(this.textContent);
+            })
+        }
+    }
+    
+    fetchCountriesAPI()
 }
 
 const submit = () => {
@@ -45,6 +64,8 @@ const submit = () => {
         document.querySelector(".error").innerHTML = "Please Enter a valid Password"
     } else if (localStorage.getItem("who") == null) {
         document.querySelector(".error").innerHTML = "Please Select Who are You"
+    } else if(localStorage.getItem("location") == null) {
+        document.querySelector(".error").innerHTML = "Please Select Your Location"
     } else {
         var replies = document.querySelector("#email").value.replace("@", "adh").replace(".", "dot");
         firebase.database().ref("Configration Database"+"/").child(replies).on("value", (snapshot) => {

@@ -24,3 +24,8 @@ body {
 .form {
   width: 22rem;
 }
+
+.cn {
+  height: 150px;
+  overflow-y: scroll;
+}
