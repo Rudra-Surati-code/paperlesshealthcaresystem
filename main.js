@@ -40,14 +40,14 @@ function submit() {
                 document.querySelector(".error").innerHTML = "Please enter correct Password"
             } else {
                 document.querySelector(".spinner-border").classList.remove("d-none")
-                var checkEmail = document.getElementById("email").value.replace("@", "adh").replace(".", "dot");
+                var checkEmail = document.getElementById("email").value.replaceAll("@", "adh").replaceAll(".", "dot");
                 firebase.database().ref("Configration Database").child(checkEmail).on('value', (snapshot) => {
                         const data = snapshot.val();
-                        localStorage.setItem("email", data.email);
-                        localStorage.setItem("name", data.name);
-                        localStorage.setItem("password", data.password);
-                        localStorage.setItem("who", data.who)
-                        document.querySelector(".error").innerHTML = "";
+                        localStorage.setItem('email', data.email);
+                        localStorage.setItem('name', data.name);
+                        localStorage.setItem('password', data.password);
+                        localStorage.setItem('who', data.who)
+                        document.querySelector('.error').innerHTML = "";
 
                         if(data.who == "Doctor") {
                             location.replace("doctor.html")

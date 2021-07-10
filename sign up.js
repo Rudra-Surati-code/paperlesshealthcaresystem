@@ -67,18 +67,19 @@ const submit = () => {
     } else if(localStorage.getItem("location") == null) {
         document.querySelector(".error").innerHTML = "Please Select Your Location"
     } else {
-        var replies = document.querySelector("#email").value.replace("@", "adh").replace(".", "dot");
+        var replies = document.querySelector("#email").value.replaceAll("@", "adh").replaceAll(".", "dot");
         firebase.database().ref("Configration Database"+"/").child(replies).on("value", (snapshot) => {
             if (snapshot.exists()) {
               document.querySelector(".error").innerHTML = "This email has already exist! Please Select The Different Email"
             } else {
-                var repla = document.querySelector("#email").value.replace("@", "adh").replace(".", "dot");
+                var repla = document.querySelector("#email").value.replaceAll("@", "adh").replaceAll(".", "dot");
                 document.querySelector(".error").innerHTML = ""
                 firebase.database().ref("Configration Database").child(repla).set({
                     name: `${document.getElementById("fname").value} ${document.getElementById("lname").value}`,
                     email: document.getElementById("email").value,
                     password: document.getElementById("pass").value,
                     who: localStorage.getItem("who"),
+                    location: localStorage.getItem("location")
                 })
                 document.querySelector(".spinner-border").classList.remove("d-none")
                 localStorage.setItem('name', `${document.getElementById("fname").value} ${document.getElementById("lname").value}`)

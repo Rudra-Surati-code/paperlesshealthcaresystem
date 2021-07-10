@@ -74,3 +74,66 @@ body {
   background-color: #293039;
   border-radius: 50px;
 }
+
+.main {
+  width: 100%;
+  height: auto;
+  margin-top: 100px;
+  overflow-y: scroll;
+}
+
+.self-check-up-covid-19 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 95%;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #19202b;
+}
+
+.self-check-up-covid-19 img {
+  width: 90px;
+  height: 90px;
+}
+
+.self-check-up-covid-19 div {
+  margin-top: 20px;
+}
+
+.self-check-up-covid-19 div h4 {
+  font-size: 15px;
+}
+
+.self-check-up-covid-19 div p {
+  font-size: 12px;
+}
+
+.searchDoctor-box {
+  width: 95%;
+  height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #19202b;
+  border-radius: 20px;
+}
+
+.searchDoctor-box input {
+  width: 80%;
+  height: 70px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: none;
+  border-radius: 20px;
+  padding-left: 15px;
+}
+
+.searchDoctor-box button {
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+}
