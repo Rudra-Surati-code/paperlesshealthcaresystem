@@ -97,6 +97,7 @@ body {
   overflow: hidden;
   border-radius: 20px;
   background: #19202b;
+  z-index: -1;
 }
 
 .self-check-up-covid-19 img {

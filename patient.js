@@ -29,3 +29,8 @@ document.querySelector(".phone").addEventListener("click", function() {
   document.querySelector(".comment").classList.remove("active");
   document.querySelector(".phone").classList.add("active");
 })
+
+new Notification("Paper Less", {
+  body: "Have a good day",
+  icon: './Logo.png'
+})
