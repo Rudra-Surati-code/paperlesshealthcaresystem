@@ -17,13 +17,22 @@ firebase.analytics();
 function loading() {
     preloader.style.display = "none";
 
+    Webcam.set({
+			width: 320,
+			height: 240,
+			image_format: 'jpeg',
+			jpeg_quality: 90
+		});
+
+		Webcam.attach( '.camera' );
+
     getData();
 }
 
 function logout() {
   localStorage.clear();
 
-    window.location = "index.html";
+  window.location = "index.html";
 }
 
 function getData() {
