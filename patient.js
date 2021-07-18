@@ -1,5 +1,6 @@
 function procress() {
   document.querySelector(".loader").classList.add("d-none");
+  $(".username").text(localStorage.getItem("name"));
 }
 
 document.querySelector(".home").addEventListener("click", function() {

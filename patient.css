@@ -8,6 +8,7 @@ body {
   background: #293039;
   overflow: hidden;
   color: white;
+  scrollbar-width: none!important;
 }
 
 .loader {

@@ -1,1 +1,208 @@
-Text File
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #local-video {
+            width: 100px;
+            border-radius: 20px;
+            position: absolute;
+            right: 30px;
+            top: 20px;
+        }
+
+        #remote-video {
+            width: 100%;
+            height: 700px;
+        }
+
+        .control {
+            font-size: 30px;
+            background-color: transparent;
+            padding: 20px;
+            display: grid;
+            place-items: center;
+        }
+
+        .fa-microphone {
+            padding: 0 10px;
+        }
+
+        .controls {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            bottom: 0;
+            color: rgb(160, 145, 145);
+        }
+
+        .fas {
+            box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+            -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+            -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+        }
+
+        .fa-phone {
+            transform: rotate(225deg);
+            background-color: red;
+            padding: 20px;
+            border-radius: 90%;
+            color: #fff;
+        }
+
+        .fa-microphone, .fa-video {
+            padding: 20px;
+            border-radius: 10px;
+            color: rgb(75, 69, 69);
+        }
+
+        .fa-microphone {
+            padding: 20px 30px;
+        }
+
+        #remote-video {
+            top: 0;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            background-color: lightgray;
+            position: absolute;
+            z-index: -10;
+        }
+    </style>
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <p id="notification" hidden></p>
+    <div class="entry-modal" id="entry-modal">
+        <p>Create or Join Meeting</p>
+        <input id="room-input" class="room-input" placeholder="Enter Room ID">
+        <div>
+            <button onclick="createRoom()">Create Room</button>
+            <button onclick="joinRoom()">Join Room</button>
+        </div>
+    </div>
+    <div class="meet-area">
+        <!-- Remote Video Element-->
+        <video id="remote-video"></video>
+
+        <!-- Local Video Element-->
+        <video id="local-video"></video>
+        <div class="controls">
+            <div class="control microphone"><i class="fas fa-microphone"></i></div>
+            <div class="control phone"><i class="fas fa-phone"></i></div>
+            <div class="control video"><i class="fas fa-video"></i></div>
+        </div>
+    </div>
+</body>
+
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+
+<script>
+    const PRE = "DELTA"
+    const SUF = "MEET"
+    var room_id;
+    var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    var local_stream;
+    function createRoom(){
+        console.log("Creating Room")
+        let room = document.getElementById("room-input").value;
+        if(room == " " || room == "")   {
+            alert("Please enter room number")
+            return;
+        }
+        room_id = PRE+room+SUF;
+        let peer = new Peer(room_id)
+        peer.on('open', (id)=>{
+            console.log("Peer Connected with ID: ", id)
+            hideModal()
+            getUserMedia({video: true, audio: true}, (stream)=>{
+                local_stream = stream;
+                setLocalStream(local_stream)
+            },(err)=>{
+                console.log(err)
+            })
+            notify("Waiting for peer to join.")
+        })
+        peer.on('call',(call)=>{
+            call.answer(local_stream);
+            call.on('stream',(stream)=>{
+                setRemoteStream(stream)
+            })
+        })
+    }
+
+    function setLocalStream(stream){
+        
+        let video = document.getElementById("local-video");
+        video.srcObject = stream;
+        video.muted = true;
+        video.play();
+    }
+    function setRemoteStream(stream){
+    
+        let video = document.getElementById("remote-video");
+        video.srcObject = stream;
+        video.play();
+    }
+
+    function hideModal(){
+        document.getElementById("entry-modal").hidden = true
+    }
+
+    function notify(msg){
+        let notification = document.getElementById("notification")
+        notification.innerHTML = msg
+        notification.hidden = false
+        setTimeout(()=>{
+            notification.hidden = true;
+        }, 3000)
+    }
+
+    function joinRoom(){
+        console.log("Joining Room")
+        let room = document.getElementById("room-input").value;
+        if(room == " " || room == "")   {
+            alert("Please enter room number")
+            return;
+        }
+        room_id = PRE+room+SUF;
+        hideModal()
+        let peer = new Peer()
+        peer.on('open', (id)=>{
+            console.log("Connected with Id: "+id)
+            getUserMedia({video: true, audio: true}, (stream)=>{
+                local_stream = stream;
+                setLocalStream(local_stream)
+                notify("Joining peer")
+                let call = peer.call(room_id, stream)
+                call.on('stream', (stream)=>{
+                    setRemoteStream(stream);
+                })
+            }, (err)=>{
+                console.log(err)
+            })
+
+        })
+    }
+</script>
+</body>
+</html>
