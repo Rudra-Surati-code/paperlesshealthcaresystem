@@ -1,32 +1,66 @@
-function procress() {
-  document.querySelector(".loader").classList.add("d-none");
-  $(".username").text(localStorage.getItem("name"));
+function loader() {
+  $(".loader").addClass("d-none");
 }
 
-document.querySelector(".home").addEventListener("click", function() {
-  document.querySelector(".home").classList.add("active");
-  document.querySelector(".folder").classList.remove("active");
-  document.querySelector(".comment").classList.remove("active");
-  document.querySelector(".phone").classList.remove("active");
+function procress() {
+  $(".username").text(localStorage.getItem("name"));
+  // setInterval(loader, 7000)
+  loader();
+
+  async function API() {
+    const response = await fetch("https://restcountries.eu/rest/v2/all");
+    const data = await response.text();
+
+    console.log(data);
+  }
+
+  API()
+}
+
+$(".home").click(function() {
+  $(".home").addClass("active");
+  $(".folder").removeClass("active");
+  $(".comment").removeClass("active");
+  $(".phone").removeClass("active");
 })
 
-document.querySelector(".folder").addEventListener("click", function() {
-  document.querySelector(".home").classList.remove("active");
-  document.querySelector(".folder").classList.add("active");
-  document.querySelector(".comment").classList.remove("active");
-  document.querySelector(".phone").classList.remove("active");
+$(".folder").click(function() {
+  $(".home").removeClass("active");
+  $(".folder").addClass("active");
+  $(".comment").removeClass("active");
+  $(".phone").removeClass("active");
 })
 
-document.querySelector(".comment").addEventListener("click", function() {
-  document.querySelector(".home").classList.remove("active");
-  document.querySelector(".folder").classList.remove("active");
-  document.querySelector(".comment").classList.add("active");
-  document.querySelector(".phone").classList.remove("active");
+$(".comment").click(function() {
+  $(".home").removeClass("active");
+  $(".folder").removeClass("active");
+  $(".comment").addClass("active");
+  $(".phone").removeClass("active");
 })
 
-document.querySelector(".phone").addEventListener("click", function() {
-  document.querySelector(".home").classList.remove("active");
-  document.querySelector(".folder").classList.remove("active");
-  document.querySelector(".comment").classList.remove("active");
-  document.querySelector(".phone").classList.add("active");
+$(".phone").click(function() {
+  $(".home").removeClass("active");
+  $(".folder").removeClass("active");
+  $(".comment").removeClass("active");
+  $(".phone").addClass("active");
+})
+
+// Appo
+
+$(".upcomming-button").click(function() {
+  $(".upcomming-button").addClass("active-schedule-button-option")
+  $(".completed-button").removeClass("active-schedule-button-option");
+  $(".canceled-button").removeClass("active-schedule-button-option");
+})
+
+$(".completed-button").click(function() {
+  $(".upcomming-button").removeClass("active-schedule-button-option")
+  $(".completed-button").addClass("active-schedule-button-option");
+  $(".canceled-button").removeClass("active-schedule-button-option");
+})
+
+$(".canceled-button").click(function() {
+  $(".upcomming-button").removeClass("active-schedule-button-option")
+  $(".completed-button").removeClass("active-schedule-button-option");
+  $(".canceled-button").addClass("active-schedule-button-option");
 })
