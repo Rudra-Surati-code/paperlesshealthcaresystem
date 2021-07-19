@@ -22,6 +22,11 @@ $(".home").click(function() {
   $(".folder").removeClass("active");
   $(".comment").removeClass("active");
   $(".phone").removeClass("active");
+
+  // 
+
+  $(".home-section").removeClass("d-none")
+  $(".appointment-section").addClass("d-none")
 })
 
 $(".folder").click(function() {
@@ -29,6 +34,11 @@ $(".folder").click(function() {
   $(".folder").addClass("active");
   $(".comment").removeClass("active");
   $(".phone").removeClass("active");
+
+  // 
+
+  $(".home-section").addClass("d-none")
+  $(".appointment-section").removeClass("d-none")
 })
 
 $(".comment").click(function() {
