@@ -249,7 +249,7 @@ body {
 
 .schedule-appointment {
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .sb-div {
