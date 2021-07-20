@@ -74,3 +74,27 @@ $(".canceled-button").click(function() {
   $(".completed-button").removeClass("active-schedule-button-option");
   $(".canceled-button").addClass("active-schedule-button-option");
 })
+
+$(".sh-button").click(function() {
+  $(".schedule-appointment").removeClass("d-none");
+  $(".data-list").addClass("d-none");
+  $(".sche").addClass("d-none");
+})
+
+$(".at-back").click(function() {
+  $(".schedule-appointment").addClass("d-none");
+  $(".data-list").removeClass("d-none");
+  $(".sche").removeClass("d-none");
+})
+
+$(".data-list-doctors-list").click(function() {
+  $(".doctors-list-name-sa").removeClass("d-none");
+  $(".doctors-list").addClass("d-none");
+  $(".sah").addClass("d-none");
+})
+
+$(".ats-back").click(function() {
+  $(".doctors-list-name-sa").addClass("d-none");
+  $(".doctors-list").removeClass("d-none");
+  $(".sah").removeClass("d-none");
+})
