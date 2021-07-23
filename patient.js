@@ -27,6 +27,8 @@ $(".home").click(function() {
 
   $(".home-section").removeClass("d-none")
   $(".appointment-section").addClass("d-none")
+  $(".chat-remainder-section").addClass("d-none")
+  $(".appointment-calling-section").addClass("d-none")
 })
 
 $(".folder").click(function() {
@@ -39,6 +41,8 @@ $(".folder").click(function() {
 
   $(".home-section").addClass("d-none")
   $(".appointment-section").removeClass("d-none")
+  $(".chat-remainder-section").addClass("d-none")
+  $(".appointment-calling-section").addClass("d-none")
 })
 
 $(".comment").click(function() {
@@ -46,6 +50,13 @@ $(".comment").click(function() {
   $(".folder").removeClass("active");
   $(".comment").addClass("active");
   $(".phone").removeClass("active");
+
+  // 
+
+  $(".home-section").addClass("d-none")
+  $(".appointment-section").addClass("d-none")
+  $(".chat-remainder-section").removeClass("d-none")
+  $(".appointment-calling-section").addClass("d-none")
 })
 
 $(".phone").click(function() {
@@ -53,6 +64,13 @@ $(".phone").click(function() {
   $(".folder").removeClass("active");
   $(".comment").removeClass("active");
   $(".phone").addClass("active");
+
+  // 
+
+  $(".home-section").addClass("d-none")
+  $(".appointment-section").addClass("d-none")
+  $(".chat-remainder-section").addClass("d-none")
+  $(".appointment-calling-section").removeClass("d-none")
 })
 
 // Appo
@@ -98,3 +116,15 @@ $(".ats-back").click(function() {
   $(".doctors-list").removeClass("d-none");
   $(".sah").removeClass("d-none");
 })
+
+// Comment and Notification
+
+// $(".chat-with-doctors-button").click(function() {
+//   $(".chat-with-doctors-button").addClass("active-schedule-button-option");
+//   $(".remainders-button").removeClass("active-schedule-button-option");
+// })
+
+// $(".remainders-button").click(function() {
+//   $(".chat-with-doctors-button").removeClass("active-schedule-button-option");
+//   $(".remainders-button").addClass("active-schedule-button-option");
+// })

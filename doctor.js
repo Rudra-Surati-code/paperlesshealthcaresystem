@@ -9,11 +9,6 @@ $(document).ready(function() {
 })
 
 $(".doctor-type-input-button").click(function() {
-    const letters = /^[A-Za-z]+$/;
-    if($(".doctor-type-input").val() != letters) {
-        $(".error-doctor-type-input").html("Please Enter Correct Doctor Specialist")
-    } else {
-        localStorage.setItem("Doctor Specialist", $(".doctor-type-input").val())
-        location.reload()
-    }
+    localStorage.setItem("Doctor Specialist", $(".doctor-type-input").val())
+    location.reload()
 })

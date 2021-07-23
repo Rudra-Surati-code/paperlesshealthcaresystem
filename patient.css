@@ -126,7 +126,7 @@ body {
   font-size: 12px;
 }
 
-.searchDoctor-box {
+.searchDoctor-box, .search-doctor-chat {
   width: 95%;
   height: 70px;
   display: flex;
@@ -136,7 +136,7 @@ body {
   border-radius: 20px;
 }
 
-.searchDoctor-box input {
+.searchDoctor-box input, .search-doctor-chat input {
   width: 80%;
   height: 70px;
   border: none;
@@ -147,7 +147,7 @@ body {
   padding-left: 15px;
 }
 
-.searchDoctor-box button {
+.searchDoctor-box button, .search-doctor-chat button {
   border: none;
   outline: none;
   background: none;
@@ -228,7 +228,7 @@ body {
   overflow: hidden;
 }
 
-.upcomming-button, .completed-button, .canceled-button, .sh-button {
+.upcomming-button, .completed-button, .canceled-button, .sh-button, .chat-with-doctors-button, .remainders-button {
   padding: 10px 18px;
   border: none;
   outline: none;
@@ -250,4 +250,67 @@ body {
 .schedule-appointment {
   height: 100vh;
   overflow-y: scroll;
+}
+
+/* Chat Remainder */
+
+.chat-remainder-section {
+  width: 100vw;
+  position: absolute;
+  top: 5px;
+}
+
+.search-doctor-chat {
+  width: 90%;
+}
+
+.doctor-chat-name-card {
+  width: 90%;
+  height: 100px;
+  background-color: #19202b;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.doctor-chat-name-card img {
+  width: 85px;
+  height: 85px;
+}
+
+.doctor-chat-name-time-message-number {
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+
+.time {
+  font-size: 15px;
+  color: gray;
+}
+
+.doctor-chat-name-message-number {
+  background-color: rgb(101, 101, 143);
+  border-radius: 20px;
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.doctor-chat-name-message-number {
+    position: relative;
+    bottom: 15px;
+}
+
+.doctor-chat-name-option {
+  position: relative;
+  right: 20px;
+  top: 1px;
+  width: 150px;
+  height: 50px;
+  overflow: hidden;
+  text-align: left;
 }
