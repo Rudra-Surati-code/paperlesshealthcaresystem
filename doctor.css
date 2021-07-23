@@ -75,3 +75,31 @@ body {
   background-color: #293039;
   border-radius: 50px;
 }
+
+.doctor-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #293039;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.doctor-type-input {
+  width: 90%;
+  height: 70px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: none;
+  border-radius: 20px;
+  padding-left: 15px;
+  background: #19202b;
+  position: absolute;
+  left: 20px;
+}
