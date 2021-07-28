@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -5,312 +7,453 @@ html {
 body {
   width: 100%;
   height: 100vh;
-  background: #293039;
-  overflow: hidden;
-  color: white;
+  color: #000;
   scrollbar-width: none!important;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-.loader {
-  width: 100%;
-  height: 100vh;
-  z-index: 99999;
-  position: fixed;
-  background: #293039 url("Logo.png") no-repeat center;
-  position: absolute;
-  top: 0;
-  left: 0;
+.mobile-view {
+  display: none;
 }
 
-.header {
-  width: 100%;
-  height: 100vh;
+.navbar img {
+  border-radius: 50%;
 }
 
-.name {
-  font-size: 20px;
+.navbar-nav {
+  margin-left: 15%;
 }
 
-.username {
-  position: absolute;
-  font-size: 2rem;
-  top: 20px;
-}
-
-.hello {
-  position: absolute;
-  left: 30px;
-  top: 40px;
-}
-
-.username {
-  margin-top: 40px;
-  margin-left: 30px;
-}
-
-.userlogo {
-  width: 50px;
-  height: 50px;
-  border-radius: 90px;
-  background-color: skyblue;
-  position: absolute;
-  right: 50px;
-  top: 50px;
-  display: grid;
-  place-items: center;
-  color: #fff;
-}
-
-.bottom-navigation {
-  width: 100%;
-  height: 70px;
-  background-color: rgb(91, 144, 161);
-  position: absolute;
-  bottom: 0;
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.ni {
-  font-size: 25px;
-}
-
-.active {
-  padding: 12px;
-  background-color: #293039;
-  border-radius: 50px;
-  transition: all 0.1s ease;
-}
-
-.main {
-  width: 100%;
-  height: 80vh;
-  margin-top: 100px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.home-section {
-  width: 100%;
-  height: 100vh;
-}
-
-.self-check-up-covid-19, .data-list-doctors-list {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 95%;
-  height: 120px;
-  overflow: hidden;
-  border-radius: 20px;
-  background: #19202b;
-  z-index: -1;
-}
-
-.self-check-up-covid-19 img, .data-list-doctors-list img {
-  width: 90px;
-  height: 90px;
-}
-
-.self-check-up-covid-19 div, .data-list-doctors-list div {
-  margin-top: 20px;
-}
-
-.self-check-up-covid-19 div h4, .data-list-doctors-list div h4 {
-  font-size: 15px;
-}
-
-.self-check-up-covid-19 div p, .data-list-doctors-list div p {
-  font-size: 12px;
-}
-
-.searchDoctor-box, .search-doctor-chat {
-  width: 95%;
-  height: 70px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background: #19202b;
-  border-radius: 20px;
-}
-
-.searchDoctor-box input, .search-doctor-chat input {
-  width: 80%;
-  height: 70px;
-  border: none;
-  outline: none;
-  color: #fff;
-  background: none;
-  border-radius: 20px;
-  padding-left: 15px;
-}
-
-.searchDoctor-box button, .search-doctor-chat button {
-  border: none;
-  outline: none;
-  background: none;
-  color: #fff;
-}
-
-.top-doctors-name {
-  width: auto;
-  height: 150px;
-}
-
-.card1 {
-  width: 170px;
-  height: 210px;
-  background-color: #19202b;
-  border-radius: 20px;
-}
-
-.top-doctors-name img {
-  width: 60px;
-  height: 60px;
-  position: relative;
-  top: 20px;
-}
-
-.card-doctor {
-  width: 95%;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.top-doctors-name .doctor-name {
-  position: relative;
-  top: 20px;
-  font-size: 17px;
-}
-
-.dn {
-  width: 100vw;
-  height: 40vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.top-doctors-name:nth-child(1) {
-  margin-left: 400px;
-}
-
-.top-doctors-name:last-child {
-  margin-right: 20px;
-}
-
-.top-doctors-name {
+.navbar-nav li a {
+  font-weight: bold;
   margin-left: 20px;
 }
 
-/* Appointment */
-
-.appointment-section {
-  width: 100vw;
-  position: absolute;
-  top: 5px;
+.navbar-nav li a:hover {
+  color: #fff!important;
+  transition: 0.5s;
 }
 
-.schedule-button-option {
-  width: 90%;
-  height: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #19202b;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.upcomming-button, .completed-button, .canceled-button, .sh-button, .chat-with-doctors-button, .remainders-button {
-  padding: 10px 18px;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  background-color: transparent;
-  color: #fff;
-  transition: 0.1s ease;
-}
-
-.active-schedule-button-option {
-  transition: 0.5s ease;
-  background-color: #0b0f16; 
-}
-
-.appointment-title {
+.card-doctor {
+  margin-top: 20px;
   margin-left: 25px;
 }
 
-.schedule-appointment {
-  height: 100vh;
-  overflow-y: scroll;
-}
-
-/* Chat Remainder */
-
-.chat-remainder-section {
-  width: 100vw;
-  position: absolute;
-  top: 5px;
-}
-
-.search-doctor-chat {
-  width: 90%;
-}
-
-.doctor-chat-name-card {
-  width: 90%;
-  height: 100px;
-  background-color: #19202b;
-  border-radius: 20px;
-  display: flex;
+.doctor-laptop-card {
+  width: 100%;
+  height: 50%;
   justify-content: space-evenly;
-  align-items: center;
+  overflow-x: scroll;
 }
 
-.doctor-chat-name-card img {
-  width: 85px;
-  height: 85px;
+.doctor-laptop-card img {
+  width: 50%;
+  height: 90%;
+  border-radius: 50%;
+  border: 1px solid #000;
+  margin-top: 20px;
 }
 
-.doctor-chat-name-time-message-number {
-  position: relative;
-  top: 5px;
-  right: 5px;
+.widthed {
+  width: 20%!important;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(93, 27, 199, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.time {
-  font-size: 15px;
-  color: gray;
+.search-doctor-laptop-view {
+  width: 300px;
+  margin-left: 40%;
+  border-radius: 10px;
+  outline: none;
+  border: 0.5px solid rgb(65, 64, 64);
+  padding: 10px 20px;
 }
+@media screen and (max-width: 800px) {
 
-.doctor-chat-name-message-number {
-  background-color: rgb(101, 101, 143);
-  border-radius: 20px;
-  width: 25px;
-  height: 25px;
-  font-size: 10px;
-  display: grid;
-  place-items: center;
-}
+  .mobile-view {
+    display: block;
+  }
 
-.doctor-chat-name-message-number {
+  .laptop-tablet-view {
+    display: none;
+  }
+
+  .navbar {
+    display: none!important;
+  }
+
+  body {
+    width: 100%;
+    height: 100vh;
+    color: #000;
+    overflow: hidden;
+    scrollbar-width: none!important;
+  }
+
+  .loader {
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    position: fixed;
+    background: #000 url("Logo.png") no-repeat center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .header {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .name {
+    font-size: 20px;
+  }
+  
+  .username {
+    position: absolute;
+    font-size: 2rem;
+    top: 20px;
+  }
+  
+  .hello {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+  }
+  
+  .username {
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+  
+  .userlogo {
+    width: 50px;
+    height: 50px;
+    border-radius: 90px;
+    background-color: skyblue;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    display: grid;
+    place-items: center;
+    color: #000;
+    border: 0.5px solid #000;
+    filter: hue-rotate(200deg);
+  }
+  
+  .bottom-navigation {
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .ni {
+    font-size: 25px;
+  }
+  
+  .active {
+    padding: 12px;
+    background-color: gray;
+    border-radius: 50px;
+    transition: all 0.1s ease;
+  }
+  
+  .main {
+    width: 100%;
+    height: 80vh;
+    margin-top: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  .home-section {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .self-check-up-covid-19, .data-list-doctors-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 95%;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: skyblue;
+    z-index: -1;
+    border: 0.5px solid #000;
+  }
+  
+  .self-check-up-covid-19 img, .data-list-doctors-list img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .self-check-up-covid-19 div, .data-list-doctors-list div {
+    margin-top: 20px;
+  }
+  
+  .self-check-up-covid-19 div h4, .data-list-doctors-list div h4 {
+    font-size: 15px;
+  }
+  
+  .self-check-up-covid-19 div p, .data-list-doctors-list div p {
+    font-size: 12px;
+  }
+  
+  .searchDoctor-box, .search-doctor-chat {
+    width: 95%;
+    height: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: skyblue;
+    border-radius: 20px;
+    border: 0.5px solid #000;
+  }
+  
+  .searchDoctor-box input, .search-doctor-chat input {
+    width: 80%;
+    height: 70px;
+    border: none;
+    outline: none;
+    color: #000;
+    background: none;
+    border-radius: 20px;
+    padding-left: 15px;
+  }
+  
+  .searchDoctor-box button, .search-doctor-chat button {
+    border: none;
+    outline: none;
+    background: none;
+    color: #000;
+  }
+  
+  .top-doctors-name {
+    width: auto;
+    height: 150px;
+  }
+  
+  .card1 {
+    width: 170px;
+    height: 210px;
+    background-color: skyblue;
+    border-radius: 20px;
+    border: 0.5px solid #000;
+  }
+  
+  .top-doctors-name img {
+    width: 60px;
+    height: 60px;
     position: relative;
-    bottom: 15px;
-}
+    top: 20px;
+  }
+  
+  .card-doctor {
+    width: 95%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .top-doctors-name .doctor-name {
+    position: relative;
+    top: 20px;
+    font-size: 17px;
+  }
+  
+  .dn {
+    width: 100vw;
+    height: 40vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  
+  .top-doctors-name:nth-child(1) {
+    margin-left: 400px;
+  }
+  
+  .top-doctors-name:last-child {
+    margin-right: 20px;
+  }
+  
+  .top-doctors-name {
+    margin-left: 20px;
+  }
+  
+  /* Appointment */
+  
+  .appointment-section {
+    width: 100vw;
+    position: absolute;
+    top: 5px;
+  }
+  
+  .schedule-button-option {
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: skyblue;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .upcomming-button, .completed-button, .canceled-button, .sh-button, .chat-with-doctors-button, .remainders-button {
+    padding: 10px 18px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #000;
+    transition: 0.1s ease;
+  }
+  
+  .active-schedule-button-option {
+    transition: 0.5s ease;
+    background-color: #eee;
+  }
+  
+  .appointment-title {
+    margin-left: 25px;
+  }
+  
+  .schedule-appointment {
+    height: 100vh;
+    overflow-y: scroll;
+  }
 
-.doctor-chat-name-option {
-  position: relative;
-  right: 20px;
-  top: 1px;
-  width: 150px;
-  height: 50px;
-  overflow: hidden;
-  text-align: left;
+  .appointment-schedule-upcomming {
+    text-align: left;
+    margin-left: 20px;
+    height: 27pc;
+    overflow-y: scroll;
+  }
+
+  .appointment-schedule-upcomming-card {
+    width: 90%;
+    height: 13pc;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding-top: 1pc;
+    padding-left: 1pc;
+  }
+
+  .d-flex-mobile-info-card {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .d-flex-mobile-info-card img {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    right: 20px;
+  }
+
+  .appointment-schedule-upcomming-card-info {
+    position: relative;
+    right: 5px;
+  }
+
+  .appointment-schedule-upcomming-card-data-info {
+    display: flex;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .appointment-schedule-upcomming-button {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .appointment-schedule-upcomming-button button {
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  
+  /* Chat Remainder */
+  
+  .chat-remainder-section {
+    width: 100vw;
+    position: absolute;
+    top: 5px;
+  }
+  
+  .search-doctor-chat {
+    width: 90%;
+  }
+  
+  .doctor-chat-name-card {
+    width: 90%;
+    height: 100px;
+    background-color: skyblue;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .doctor-chat-name-card img {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .doctor-chat-name-time-message-number {
+    position: relative;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .time {
+    font-size: 15px;
+    color: gray;
+  }
+  
+  .doctor-chat-name-message-number {
+    background-color: rgb(101, 101, 143);
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+    display: grid;
+    place-items: center;
+  }
+  
+  .doctor-chat-name-message-number {
+      position: relative;
+      bottom: 15px;
+  }
+  
+  .doctor-chat-name-option {
+    position: relative;
+    right: 20px;
+    top: 1px;
+    width: 150px;
+    height: 50px;
+    overflow: hidden;
+    text-align: left;
+  }
 }

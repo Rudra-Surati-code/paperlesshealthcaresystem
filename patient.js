@@ -8,7 +8,7 @@ function procress() {
   loader();
 
   async function API() {
-    const response = await fetch("https://restcountries.eu/rest/v2/all");
+    const response = await fetch("https://www.youtube.com/");
     const data = await response.text();
 
     console.log(data);

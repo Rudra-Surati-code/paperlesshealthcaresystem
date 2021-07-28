@@ -19,20 +19,26 @@
 <body onload='procress()'>
 
   <div class="loader"></div>
+
+  <img src="Logo.png" class="img-logo">
+
+  <div class="short-preview">
+    
+  </div>
   
   <form class="form">
     <label class="login-label mb-4"> Sign in </label>
     <br>
     <!-- Email input -->
     <div class="form-outline mb-4">
-      <input type="email" id="email" autocomplete="off" class="form-control text-white" />
-      <label class="form-label text-white" for="form2Example1">Email address</label>
+      <input type="email" id="email" autocomplete="off" class="form-control text-black" />
+      <label class="form-label text-black" for="form2Example1">Email address</label>
     </div>
   
     <!-- Password input -->
     <div class="form-outline mb-4">
-      <input type="password" id="pass" class="form-control text-white" />
-      <label class="form-label text-white" for="form2Example2">Password</label>
+      <input type="password" id="pass" class="form-control text-black" />
+      <label class="form-label text-black" for="form2Example2">Password</label>
     </div>
   
     <!-- 2 column grid layout for inline styling -->
@@ -53,22 +59,22 @@
   
       <div class="col">
         <!-- Simple link -->
-        <a href="forgot.html" class="text-success">Forgot password?</a>
+        <a href="forgot.html" class="text-info">Forgot password?</a>
       </div>
     </div>
   
     <!-- Submit button -->
-    <a class="btn btn-success btn-block mb-4" onclick="submit()">Sign in</a>
+    <a class="btn btn-info btn-block mb-4" onclick="submit()">Sign in</a>
 
     <div class="text-center mb-2">
-      <div class="spinner-border text-success d-none" role="status">
+      <div class="spinner-border text-info d-none" role="status">
           <span class="visually-hidden">Loading...</span>
       </div>
     </div>
 
     <div class="error text-danger"></div>
 
-    <label>Do not have an Account <a href="sign up.html" class="text-success">Sign Up</a></label>
+    <label>Do not have an Account <a href="sign up.html" class="text-info">Sign Up</a></label>
   </form>
 
   <!-- MDB -->

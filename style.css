@@ -3,9 +3,14 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
-  background: #293039;
   overflow: hidden;
-  color: white;
+  color: #000!important;
+}
+
+.img-logo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
 }
 
 .loader {
@@ -23,4 +28,12 @@ body {
 
 .form {
   width: 22rem;
+}
+
+.short-preview {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  background: #fff;
 }
