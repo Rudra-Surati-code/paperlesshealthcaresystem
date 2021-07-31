@@ -344,54 +344,76 @@ body {
     overflow-y: scroll;
   }
 
-  .appointment-schedule-upcomming-card {
+  .appointment-schedule-upcomming-cards {
     width: 90%;
     height: 13pc;
-    border-radius: 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding-top: 1pc;
     padding-left: 1pc;
   }
 
+  .appointment-schedule-upcomming-card {
+    width: 110%;
+    height: 160px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border-radius: 20px;
+    position: relative;
+    right: 10px;
+  }
+
   .d-flex-mobile-info-card {
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
-  .d-flex-mobile-info-card img {
-    width: 60px;
-    height: 60px;
+  .d-flex-mobile-info-card span {
     position: relative;
-    right: 20px;
+    left: 15px;
+    top: 10px;
+  }
+
+  .d-flex-mobile-info-card img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    right: 10px;
   }
 
   .appointment-schedule-upcomming-card-info {
     position: relative;
-    right: 5px;
+    bottom: 19px;
   }
 
   .appointment-schedule-upcomming-card-data-info {
-    display: flex;
-    width: 100%;
-    height: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
 
+  .appointment-schedule-upcomming-card-data-info, .appointment-schedule-upcomming-button {
+    position: relative;
+    bottom: 10px;
+  }
+
   .appointment-schedule-upcomming-button {
-    margin-top: 10px;
     width: 100%;
+    height: 200px;
     display: flex;
     justify-content: space-evenly;
+    margin-top: 5px;
   }
 
   .appointment-schedule-upcomming-button button {
+    width: 45%;
+    height: 20%;
     border: none;
     outline: none;
-    width: 150px;
-    height: 50px;
     border-radius: 10px;
+  }
+
+  .active-Reshudule {
+    background-color: skyblue;
   }
   
   /* Chat Remainder */
