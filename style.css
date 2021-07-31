@@ -1,39 +1,110 @@
 body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100vh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  color: #000!important;
 }
 
 .img-logo {
   width: 200px;
   height: 200px;
   position: absolute;
+  z-index: -1;
 }
 
 .loader {
   width: 100%;
   height: 100vh;
-  z-index: 99999;
+  z-index: 99999999;
   position: fixed;
-  background: url("Logo.png") no-repeat center;
-}
-
-.login-label {
-  font-size: 40px;
-  cursor: text;
+  background: #fff url("Logo.png") no-repeat center;
 }
 
 .form {
   width: 22rem;
 }
 
-.short-preview {
+.sp {
   width: 100%;
   height: 100vh;
-  position: fixed;
+  z-index: 99999;
+}
+
+.shot-1, .shot-2, .shot-3 {
+  width: 100%;
+  height: 100vh;
   z-index: 9999;
-  background: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.shot-1 button, .shot-2 button, .shot-3 button {
+  font-size: 30px;
+}
+
+.end-section {
+  font-size: 1rem!important;
+}
+
+.sp img {
+  width: 70%;
+  border: 0.5px solid #000;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+.gradient-color {
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(15deg, #2193b0, #6dd5ed);
+  color: #fff;
+}
+
+.login-form {
+  width: 100vw;
+  height: 553px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  right: 50px;
+  bottom: 50px;
+}
+
+.login-form p {
+  margin-left: 10px;
+}
+
+.login-form input {
+  width: 150%;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  background-color: #eee;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.login-btn {
+  position: relative;
+  top: 25px;
+  width: 150%;
+  border-radius: 30px;
+  padding: 10px 0;
+}
+
+.error {
+  color: red;
+  position: relative;
+  top: 40px;
+  left: 5px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }

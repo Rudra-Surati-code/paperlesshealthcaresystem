@@ -24,76 +24,75 @@
 
   <div class="loader"></div>
   
-    <form class="form">
-        <label class="login-label mb-4"> Sign up </label>
+  <div class="form">
+    <div class="gradient-color">
+      <h2>Sign Up</h2>
+      <p>Sign up to Create a new Account</p>
+    </div>
+
+    <div class="login-form">
+      <div>
+        <div class="d-flex" style="width: 148%;">
+          <input style="width: 100%; margin-right: 10px;" type="text" id="fname" placeholder="PLEASE ENTER YOUR FIRST NAME">
+          <input style="width: 100%; margin-left: 10px;" type="password" id="lname" placeholder="PLEASE ENTER YOUR LAST NAME">
+        </div>
         <br>
-        <!-- First Name input -->
-        <div class="form-outline mb-4">
-            <input type="text" id="fname" class="form-control text-white" />
-            <label class="form-label text-white" for="form2Example1">First name</label>
-        </div>
+        <p><small style="color: gray;">PLEASE ENTER YOUR EMAIL ADDRESS</small></p>
+        <input type="text" id="email" placeholder="PLEASE ENTER YOUR EMAIL ADDRESS">
+        <br>
+        <br>
+        <p><small style="color: gray;">PLEASE ENTER YOUR PASSWORD</small></p>
+        <input type="password" id="pass" placeholder="PLEASE ENTER YOUR PASSWORD">
+        <br>
+        <br>
+        <div class="d-flex">
+          <div class="dropdown">
+            <button
+              class="btn btn-info dropdown-toggle selecting"
+              type="button"
+              id="dropdownMenuButton "
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Who are you
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><button class="dropdown-item doctor">Doctor</button></li>
+              <li><button class="dropdown-item imagine-center">Imagine Center</button></li>
+              <li><button class="dropdown-item laboratory">Laboratory</button></li>
+              <li><button class="dropdown-item medical-center">Medical Center</button></li>
+              <li><button class="dropdown-item patient">Patient</button></li>
+            </ul>
+          </div>
 
-        <!-- Last Name input -->
-        <div class="form-outline mb-4">
-            <input type="text" id="lname" class="form-control text-white" />
-            <label class="form-label text-white" for="form2Example1">Last name</label>
+          <div class="dropdown" style="margin-left: 10px;">
+            <button
+              class="btn btn-info dropdown-toggle countries"
+              type="button"
+              id="dropdownMenuButton"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Please select your Country
+            </button>
+            <ul class="dropdown-menu cn" aria-labelledby="dropdownMenuButton">
+              
+            </ul>
+          </div>
         </div>
+        <button class="btn btn-info login-btn" onclick="submit()">Sign up</button>
+        <div class="error"></div>
+        <br>
+        <br>
+        <hr>
+        <p><small>Already have an account? <a href="index.html">Login</a></small></p>
+      </div>
+    </div>
+  </div>
 
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-          <input type="email" id="email" class="form-control text-white" />
-          <label class="form-label text-white" for="form2Example1">Email address</label>
-        </div>
-      
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-          <input type="password" id="pass" class="form-control text-white" />
-          <label class="form-label text-white" for="form2Example2">Password</label>
-        </div>
-        <span>
-          <button class="btn btn-success selecting dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-            Who are you
-          </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li class="dropdown-item doctor">Doctor</li>
-                  <li class="dropdown-item imagine-center">Imagine Center</li>
-                  <li class="dropdown-item laboratory">Laboratory</li>
-                  <li class="dropdown-item medical-center">Medical Center</li>
-                  <li class="dropdown-item patient">Patient</li>
-                </ul>
-                <br>
-                <br>
-                <button
-                  class="btn btn-success selecting dropdown-toggle"
-                  type="button"
-                  id="countries"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Enter Your Country Name
-                </button>
-                <ul class="dropdown-menu cn" aria-labelledby="countries">
-                </ul>
-      <br>
-      <br>
-      </span>
-        </div>
-        <p class="error" style="color: lightcoral"></p>
-        <!-- Submit button -->
-        <a type="submit" onclick="submit()" class="btn btn-success btn-block mb-4">Sign up</a>
-
-        <div class="text-center mb-2">
-            <div class="spinner-border text-success d-none" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    
-        <label>Already have an account <a href="index.html" class="text-success">Sign in</a></label>
-      </form>
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="sign up.js"></script>
-      <!-- MDB -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js" ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="sign up.js"></script>
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js" ></script>
 </body>
 </html>

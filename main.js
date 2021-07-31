@@ -12,9 +12,13 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const procress = () => {
-    document.querySelector(".loader").classList.add("d-none")
+    $(".loader").addClass("d-none")
     if(localStorage.getItem("email") == null) {
-        console.log("paper less")
+        if(localStorage.getItem("sp-hide") == null) {
+            return;
+        } else {
+            $(".sp").addClass("d-none")
+        }
     } else {
         if(localStorage.getItem("who") == "Doctor") {
             location.replace("doctor.html")
@@ -35,11 +39,11 @@ function submit() {
         snapshot.forEach((childSnapshot) => {
             const data = childSnapshot.val();
             if(document.getElementById("email").value != data.email) {
-                document.querySelector(".error").innerHTML = "Please enter correct Email"
+                $(".error").html("We did't find that email address")
             } else if(document.getElementById("pass").value != data.password) {
-                document.querySelector(".error").innerHTML = "Please enter correct Password"
+                $(".error").html("Please Enter the correct password")
             } else {
-                document.querySelector(".spinner-border").classList.remove("d-none")
+                $(".spinner-border").removeClass("d-none")
                 var checkEmail = document.getElementById("email").value.replaceAll("@", "adh").replaceAll(".", "dot");
                 firebase.database().ref("Configration Database").child(checkEmail).on('value', (snapshot) => {
                         const data = snapshot.val();
@@ -47,7 +51,7 @@ function submit() {
                         localStorage.setItem('name', data.name);
                         localStorage.setItem('password', data.password);
                         localStorage.setItem('who', data.who)
-                        document.querySelector('.error').innerHTML = "";
+                        $('.error').html("");
 
                         if(data.who == "Doctor") {
                             location.replace("doctor.html")
@@ -65,3 +69,19 @@ function submit() {
         });
     });
 }
+
+$(".spfirst").click(() => {
+    $('.shot-1').addClass("d-none")
+    $('.shot-2').removeClass("d-none")
+})
+
+$(".spsecond").click(() => {
+    $('.shot-1').addClass("d-none")
+    $('.shot-2').addClass("d-none")
+    $(".shot-3").removeClass("d-none");
+})
+
+$(".end-section").click(() => {
+    $(".sp").addClass("d-none")
+    localStorage.setItem("sp-hide", "yes")
+})
