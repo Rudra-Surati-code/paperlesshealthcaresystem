@@ -19,9 +19,59 @@ $(document).ready(function() {
     } else {
         $(".doctor-type").css('display', "none");
     }
+
+    $(".userlogo").html(localStorage.getItem("name")[0])
 })
 
 $(".doctor-type-input-button").click(function() {
     localStorage.setItem("Doctor Specialist", $(".doctor-type-input").val())
     location.reload()
+})
+
+$(".home").click(function() {
+    $(".home").addClass("active");
+    $(".calenadar").removeClass("active");
+    $(".plus-square").removeClass("active");
+    $(".phone").removeClass("active");
+
+    $(".home-section").removeClass("d-none");
+    $(".schedule-section").addClass("d-none");
+    $(".new-prescription").addClass("d-none");
+    $(".call").addClass("d-none")
+})
+
+$(".calenadar").click(function() {
+    $(".home").removeClass("active");
+    $(".calenadar").addClass("active");
+    $(".plus-square").removeClass("active");
+    $(".phone").removeClass("active");
+
+    $(".home-section").addClass("d-none");
+    $(".schedule-section").removeClass("d-none");
+    $(".new-prescription").addClass("d-none");
+    $(".call").addClass("d-none")
+})
+
+$(".plus-square").click(function() {
+    $(".home").removeClass("active");
+    $(".calenadar").removeClass("active");
+    $(".plus-square").addClass("active");
+    $(".phone").removeClass("active");
+
+    $(".home-section").addClass("d-none");
+    $(".schedule-section").addClass("d-none");
+    $(".new-prescription").removeClass("d-none");
+    $(".call").addClass("d-none")
+})
+
+$(".phone").click(function() {
+    $(".home").removeClass("active");
+    $(".calenadar").removeClass("active");
+    $(".plus-square").removeClass("active");
+    $(".phone").addClass("active");
+
+    $(".home-section").addClass("d-none");
+    $(".schedule-section").addClass("d-none");
+    $(".new-prescription").addClass("d-none");
+    $(".call").removeClass("d-none")
 })

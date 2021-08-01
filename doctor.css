@@ -26,10 +26,12 @@ body {
 .username {
   position: absolute;
   font-size: 2rem;
+  color: #000;
   top: 20px;
 }
 
 .hello {
+  color: #000;
   position: absolute;
   left: 30px;
   top: 50px;
@@ -48,18 +50,17 @@ body {
   background-color: skyblue;
   position: absolute;
   right: 50px;
-  top: 50px;
+  top: 60px;
   display: grid;
   place-items: center;
   color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .bottom-navigation {
   width: 100%;
   height: 70px;
-  background-color: rgb(91, 144, 161);
-  position: absolute;
-  bottom: 0;
+  background-color: #fff;
   border-radius: 20px 20px 0 0;
   display: flex;
   justify-content: space-around;
@@ -68,12 +69,14 @@ body {
 
 .ni {
   font-size: 25px;
+  color: #000;
 }
 
 .active {
   padding: 10px;
-  background-color: #293039;
+  background-color: gray;
   border-radius: 50px;
+  transition: all 0.1s ease;
 }
 
 .doctor-type {
@@ -102,4 +105,55 @@ body {
   background: skyblue;
   position: absolute;
   left: 20px;
+}
+
+.section {
+  width: 100%;
+  height: 70vh;
+  margin-top: 150px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.home-section, .schedule-section, .new-prescription, .call {
+  width: 100vw;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.schedule-section, .new-prescription, .call {
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.prescription-card {
+  width: 95%;
+  height: 120px;
+  background-color: skyblue;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.prescription-card img {
+  position: relative;
+  right: 10px;
+  width: 90px;
+  height: 90px;
+}
+
+.prescription-card div {
+  position: relative;
+  right: 20px;
+  top: 15px;
+  text-align: left;
+}
+
+.prescription-card div p small {
+  position: relative;
+  bottom: 10px;
 }
