@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="patient.css">
   <!-- Fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 </head>
 <body onload='procress()'>
 
@@ -121,7 +122,7 @@
                     <span class="username"></span>
                   </span>
             
-                  <h1 class="userlogo">R</h1>
+                  <h1 class="userlogo"></h1>
                 </div>
     
                 <center>
@@ -211,29 +212,87 @@
 
                   <br>
 
-                  <div class="appointment-schedule-upcomming">
-                    <p class="text-muted">Upcoming Appointment</p>
-
-                    <div class="appointment-schedule-upcomming-cards">
-                      <div class="appointment-schedule-upcomming-card">
-                        <div class="d-flex-mobile-info-card">
-                          <span>
-                            <h5>Dr. Joshi</h5>
-                            <p class="text-muted">Cardiologist</p>
-                          </span>
-
-                          <img src="mask.png" alt="">
-                        </div>
-                        <div class="appointment-schedule-upcomming-card-info">
-                          <hr>
-                          <div class="appointment-schedule-upcomming-card-data-info">
-                            <span>12/03/2021</span>
-                            <span>10:30 AM</span>
-                            <span>Confirmed</span>
+                  <div class="sktch">
+                    <div class="appointment-schedule-upcomming">
+                      <p class="text-muted">Upcoming Appointment</p>
+  
+                      <div class="appointment-schedule-upcomming-cards">
+                        <div class="appointment-schedule-upcomming-card">
+                          <div class="d-flex-mobile-info-card">
+                            <span>
+                              <h5>Dr. Joshi</h5>
+                              <p class="text-muted">Cardiologist</p>
+                            </span>
+  
+                            <img src="mask.png" alt="">
                           </div>
-                          <div class="appointment-schedule-upcomming-button">
-                            <button>Cancel</button>
-                            <button class="active-Reshudule">Reshudule</button>
+                          <div class="appointment-schedule-upcomming-card-info">
+                            <hr>
+                            <div class="appointment-schedule-upcomming-card-data-info">
+                              <span>12/03/2021</span>
+                              <span>10:30 AM</span>
+                              <span>Confirmed</span>
+                            </div>
+                            <div class="appointment-schedule-upcomming-button">
+                              <button>Cancel</button>
+                              <button class="active-Reshudule">Reshudule</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="appointment-schedule-completed d-none">
+                      <p class="text-muted">Completed Appointment</p>
+  
+                      <div class="appointment-schedule-completed-cards">
+                        <div class="appointment-schedule-completed-card">
+                          <div class="d-flex-mobile-info-card-completed">
+                            <span>
+                              <h5>Dr. Joshi</h5>
+                              <p class="text-muted">Cardiologist</p>
+                            </span>
+  
+                            <img src="mask.png" alt="">
+                          </div>
+                          <div class="appointment-schedule-completed-card-info">
+                            <hr>
+                            <div class="appointment-schedule-completed-card-data-info">
+                              <span>12/03/2021</span>
+                              <span>10:30 AM</span>
+                              <span>Completed</span>
+                            </div>
+                            <div class="appointment-schedule-completed-button">
+                              <button class="active-Reshudule-completed">Reshudule</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="appointment-schedule-cancel d-none">
+                      <p class="text-muted" style="text-align: left!important; margin-left: 25px!important;">Cancel Appointment</p>
+  
+                      <div class="appointment-schedule-upcomming-cards">
+                        <div class="appointment-schedule-upcomming-card">
+                          <div class="d-flex-mobile-info-card">
+                            <span>
+                              <h5>Dr. Joshi</h5>
+                              <p class="text-muted">Cardiologist</p>
+                            </span>
+  
+                            <img src="mask.png" alt="">
+                          </div>
+                          <div class="appointment-schedule-upcomming-card-info">
+                            <hr>
+                            <div class="appointment-schedule-upcomming-card-data-info">
+                              <span>12/03/2021</span>
+                              <span>10:30 AM</span>
+                              <span>Confirmed</span>
+                            </div>
+                            <div class="appointment-schedule-upcomming-button">
+                              <button class="active-Reshudule">Reshudule</button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -312,7 +371,27 @@
               </div>
     
               <div class="appointment-calling-section d-none">
-                
+                <p id="notification" hidden></p>
+                <div class="entry-modal" id="entry-modal">
+                    <p>Create or Join Meeting</p>
+                    <input id="room-input" class="room-input" placeholder="Enter Room ID">
+                    <div>
+                        <button onclick="createRoom()">Create Room</button>
+                        <button onclick="joinRoom()">Join Room</button>
+                    </div>
+                </div>
+                <div class="meet-area">
+                    <!-- Remote Video Element-->
+                    <video id="remote-video"></video>
+            
+                    <!-- Local Video Element-->
+                    <video id="local-video"></video>
+                    <div class="controls">
+                        <div class="control microphone"><i class="fas fa-microphone"></i></div>
+                        <div class="control phone"><i class="fas fa-phone"></i></div>
+                        <div class="control video"><i class="fas fa-video"></i></div>
+                    </div>
+                </div>
               </div>
 
               <div class="bottom-navigation">

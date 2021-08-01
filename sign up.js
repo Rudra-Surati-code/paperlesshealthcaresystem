@@ -1,12 +1,12 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyDEVFkiLOkEcwwIr-3YgO_FBY5wbYYAIcU",
-    authDomain: "paper-less-5c7a0.firebaseapp.com",
-    databaseURL: "https://paper-less-5c7a0-default-rtdb.firebaseio.com",
-    projectId: "paper-less-5c7a0",
-    storageBucket: "paper-less-5c7a0.appspot.com",
-    messagingSenderId: "20247367059",
-    appId: "1:20247367059:web:1ae117fa5dfdaf1a2c6c66",
-    measurementId: "G-8L7E8S91DR"
+    apiKey: "AIzaSyBRJebbIvB4gELwrfq0_XjAG6OejgXraww",
+    authDomain: "paper-less-9ab8d.firebaseapp.com",
+    databaseURL: "https://paper-less-9ab8d-default-rtdb.firebaseio.com",
+    projectId: "paper-less-9ab8d",
+    storageBucket: "paper-less-9ab8d.appspot.com",
+    messagingSenderId: "849779728570",
+    appId: "1:849779728570:web:2354acabbb54c91df0a283",
+    measurementId: "G-Z1M5DRX6J4"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -50,6 +50,7 @@ const procress = () => {
 }
 
 const submit = () => {
+    alert(document.querySelector("#email").value.replaceAll("@", "adh").replaceAll(".", "dot"))
     var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
 	var letters = /^[A-Za-z]+$/;
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
