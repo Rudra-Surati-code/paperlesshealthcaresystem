@@ -3,6 +3,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100vh;
+  overflow: hidden!important;
 }
 
 .img-logo {
@@ -28,6 +29,9 @@ body {
   width: 100%;
   height: 100vh;
   z-index: 99999;
+  position: fixed;
+  overflow: hidden;
+  background: #39c0ed;
 }
 
 .shot-1, .shot-2, .shot-3 {
@@ -43,6 +47,8 @@ body {
 
 .shot-1 button, .shot-2 button, .shot-3 button {
   font-size: 30px;
+  position: relative;
+  bottom: 10px;
 }
 
 .end-section {
@@ -51,6 +57,7 @@ body {
 
 .sp img {
   width: 70%;
+  height: 80%;
   border: 0.5px solid #000;
   border-radius: 10px;
   background-size: cover;
@@ -107,4 +114,37 @@ body {
   left: 5px;
   text-transform: uppercase;
   font-size: 0.8rem;
+}
+
+@media screen and (max-width: 800px) {
+  .gradient-color {
+    width: 100vw;
+  }
+
+  .login-form {
+    width: 100vw;
+    height: 553px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 20px;
+  }
+  
+  .login-form p {
+    margin-left: 10px;
+  }
+  
+  .login-form input {
+    width: 130%;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    background-color: #eee;
+    border-radius: 30px;
+    font-size: 12px;
+  }
+
+  .login-btn {
+    width: 130%;
+  }
 }
