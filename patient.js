@@ -9,7 +9,7 @@ function procress() {
   $(".userlogo").text(logoname)
 }
 
-$(".home").click(function() {
+$(".home").click(() => {
   $(".home").addClass("active");
   $(".folder").removeClass("active");
   $(".comment").removeClass("active");
@@ -23,7 +23,7 @@ $(".home").click(function() {
   $(".appointment-calling-section").addClass("d-none")
 })
 
-$(".folder").click(function() {
+$(".folder").click(() => {
   $(".home").removeClass("active");
   $(".folder").addClass("active");
   $(".comment").removeClass("active");
@@ -37,7 +37,7 @@ $(".folder").click(function() {
   $(".appointment-calling-section").addClass("d-none")
 })
 
-$(".comment").click(function() {
+$(".comment").click(() => {
   $(".home").removeClass("active");
   $(".folder").removeClass("active");
   $(".comment").addClass("active");
@@ -51,7 +51,7 @@ $(".comment").click(function() {
   $(".appointment-calling-section").addClass("d-none")
 })
 
-$(".phone").click(function() {
+$(".phone").click(() => {
   $(".home").removeClass("active");
   $(".folder").removeClass("active");
   $(".comment").removeClass("active");
@@ -67,7 +67,7 @@ $(".phone").click(function() {
 
 // Appo
 
-$(".upcomming-button").click(function() {
+$(".upcomming-button").click(() => {
   $(".upcomming-button").addClass("active-schedule-button-option")
   $(".completed-button").removeClass("active-schedule-button-option");
   $(".canceled-button").removeClass("active-schedule-button-option");
@@ -77,7 +77,7 @@ $(".upcomming-button").click(function() {
   $(".appointment-schedule-cancel").addClass("d-none");
 })
 
-$(".completed-button").click(function() {
+$(".completed-button").click(() => {
   $(".upcomming-button").removeClass("active-schedule-button-option")
   $(".completed-button").addClass("active-schedule-button-option");
   $(".canceled-button").removeClass("active-schedule-button-option");
@@ -87,7 +87,7 @@ $(".completed-button").click(function() {
   $(".appointment-schedule-cancel").addClass("d-none");
 })
 
-$(".canceled-button").click(function() {
+$(".canceled-button").click(() => {
   $(".upcomming-button").removeClass("active-schedule-button-option")
   $(".completed-button").removeClass("active-schedule-button-option");
   $(".canceled-button").addClass("active-schedule-button-option");
@@ -97,25 +97,25 @@ $(".canceled-button").click(function() {
   $(".appointment-schedule-cancel").removeClass("d-none");
 })
 
-$(".sh-button").click(function() {
+$(".sh-button").click(() => {
   $(".schedule-appointment").removeClass("d-none");
   $(".data-list").addClass("d-none");
   $(".sche").addClass("d-none");
 })
 
-$(".at-back").click(function() {
+$(".at-back").click(() => {
   $(".schedule-appointment").addClass("d-none");
   $(".data-list").removeClass("d-none");
   $(".sche").removeClass("d-none");
 })
 
-$(".data-list-doctors-list").click(function() {
+$(".data-list-doctors-list").click(() => {
   $(".doctors-list-name-sa").removeClass("d-none");
   $(".doctors-list").addClass("d-none");
   $(".sah").addClass("d-none");
 })
 
-$(".ats-back").click(function() {
+$(".ats-back").click(() => {
   $(".doctors-list-name-sa").addClass("d-none");
   $(".doctors-list").removeClass("d-none");
   $(".sah").removeClass("d-none");
@@ -123,6 +123,30 @@ $(".ats-back").click(function() {
 
 // Comment and Notification
 
-$(".doctor-chat-name-card").click(function() {
-  console.log()
+$(".doctor-chat-name-card").click(() => {
+  $(".chat-appointment-chat").toggleClass("d-none");
+})
+
+$(".choose-another-doctor-chat").click(() => {
+  $(".chat-appointment-chat").toggleClass("d-none");
+})
+
+$(".register-doctor-to-dr-joshi").click(() => {
+  $(".payment-appointment-chat").toggleClass("d-none");
+})
+
+$(".g-pay-payment-appointment").click(() => {
+  $(".chat-chat").toggleClass("d-none");
+})
+
+$(".send-chat-message").click(() => {
+  $(".display-message-chat-char").removeClass("d-none")
+  $(".display-message-chat-char").html(`${$(".display-message-chat-char").html()} <div class="our-side">${$(".send-message-chat").val()}</div>`)
+  $(".send-message-chat").val(null)
+})
+
+$(".end-chat-message").click(() => {
+  $(".chat-chat").addClass("d-none")
+  $(".chat-appointment-chat").addClass("d-none")
+  $(".payment-appointment-chat").addClass("d-none")
 })

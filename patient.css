@@ -1,86 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
-html {
-  scroll-behavior: smooth;
-}
-
-.loader {
-  width: 100%;
-  height: 100vh;
-  background: #fff url('Logo.png') center center no-repeat;
-}
-
 body {
-  width: 100%;
-  height: 100vh;
-  color: #000;
-  scrollbar-width: none!important;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
-.mobile-view {
   display: none;
 }
 
-.navbar img {
-  border-radius: 50%;
-}
-
-.navbar-nav {
-  margin-left: 15%;
-}
-
-.navbar-nav li a {
-  font-weight: bold;
-  margin-left: 20px;
-}
-
-.navbar-nav li a:hover {
-  color: #fff!important;
-  transition: 0.5s;
-}
-
-.card-doctor {
-  margin-top: 20px;
-  margin-left: 25px;
-}
-
-.doctor-laptop-card {
-  width: 100%;
-  height: 50%;
-  justify-content: space-evenly;
-  overflow-x: scroll;
-}
-
-.doctor-laptop-card img {
-  width: 50%;
-  height: 90%;
-  border-radius: 50%;
-  border: 1px solid #000;
-  margin-top: 20px;
-}
-
-.widthed {
-  width: 20%!important;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(93, 27, 199, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-.search-doctor-laptop-view {
-  width: 300px;
-  margin-left: 40%;
-  border-radius: 10px;
-  outline: none;
-  border: 0.5px solid rgb(65, 64, 64);
-  padding: 10px 20px;
-}
-
-@media screen and (max-width: 800px) {
-
-  .mobile-view {
-    display: block;
-  }
+@media screen and (max-width: 1400px) {
 
   .laptop-tablet-view {
     display: none;
@@ -96,6 +20,7 @@ body {
     color: #000;
     overflow: hidden;
     scrollbar-width: none!important;
+    display: initial;
   }
 
   .loader {
@@ -667,5 +592,120 @@ body {
     bottom: 10px;
     width: 150%;
     overflow: hidden;
+  }
+
+  .chat-appointment-chat {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
+
+  .chat-appointment-chat h1 {
+    position: relative;
+    top: 100px;
+  }
+
+  .register-doctor-to-dr-joshi {
+    position: relative;
+    top: 200px;
+  }
+
+  .choose-another-doctor-chat {
+    position: relative;
+    top: 300px;
+  }
+
+  .d-none-some-color {
+    background: transparent;
+    color: transparent;
+  }
+
+  .d-none-some-color .time {
+    color: transparent!important;
+  }
+
+  .d-none-some-color .doctor-chat-name-message-number {
+    background: transparent;
+  }
+
+  .payment-appointment-chat {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .payment-appointment-chat button {
+    padding: 5px 50px;
+    font-size: 3rem;
+  }
+
+  .chat-chat {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
+
+  .display-message-chat {
+    width: 100vw;
+    height: 35rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .display-message-chat-char {
+    width: 95vw;
+    height: 95%;
+  }
+
+  .our-side {
+    width: 15rem;
+    height: auto;
+    background-color: skyblue;
+    border-radius: 20px;
+    float: right;
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  .send-message {
+    width: 90%;
+    height: 7%;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    position: relative;
+    top: 33rem;
+  }
+
+  .send-message input {
+    width: 80%;
+    height: 100%;
+    padding: 0 15px;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .end-chat-message {
+    position: relative;
+    top: 35rem;
   }
 }
