@@ -16,7 +16,7 @@
   <!-- Style ( Custom ) -->
   <link rel="stylesheet" href="doctor.css">
   <!-- Fontawesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
 
@@ -42,20 +42,47 @@
             <div class="home-section">
               <span class="name">
                 <span class="hello">Hello, </span>
-                <span class="username">Rudra Surati</span>
+                <span class="username"></span>
                 <span style="position: absolute; top: 100px; left: 30px; color: #000;">Jivan Jyot Hospital</span>
 
                 <h1 class="userlogo"></h1>
               </span>
+              
+              <h5 style="margin-left: 30px; color: #000;"><small>Talk to another Doctor</small></h5>
+              <br>
+              <center class="scroll">
+                <div class="chat-to-another-doctor-card">
+                  <h5 class="title">Dr. Narayan</h5>
+                  <p style="color: gray;"><small>Cradiologist</small></p>
+                </div>
+
+                <div class="chat-to-another-doctor-card">
+                  <h5 class="title">Dr. Naren</h5>
+                  <p style="color: gray;"><small>Nurologist</small></p>
+                </div>
+
+                <div class="chat-to-another-doctor-card">
+                  <h5 class="title">Dr. Naren</h5>
+                  <p style="color: gray;"><small>Nurologist</small></p>
+                </div>
+              </center>
+
+
             </div>
 
-            <div class="schedule-section d-none">
-              
+            <div class="schedule-section title d-none">
+              <h5><small>This is all your Appointment</small></h5>
+              <div class="appointment-shown-card">
+                <p>From, Rudra Surati</p>
+                <p>Time - 10:30 AM</p>
+                <p>Date - 20/09/2021</p>
+                <button class="btn">Start Appointment</button>
+              </div>
             </div>
 
             <div class="new-prescription d-none">
-              <h5 style="margin-left: 25px; color: #000;"><small>Add Prescription</small></h5>
-              <p  style="margin-left: 25px; color: #000;">You can only add Prescription (here) you had take appointment</p>
+              <h5 style="margin-left: 25px;" class="title"><small>Add Prescription</small></h5>
+              <p style="margin-left: 25px;" class="title">You can only add Prescription (here) you had take appointment</p>
               <center>
                 <div class="prescription-cards">
                   <div class="prescription-card">

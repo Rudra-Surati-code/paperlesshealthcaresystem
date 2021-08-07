@@ -83,4 +83,4 @@ $(document).ready(function() {
 $(".doctor-type-input-button").click(function() {
     localStorage.setItem("Doctor Specialist", $(".doctor-type-input").val())
     location.reload()
-})
+})  

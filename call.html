@@ -87,23 +87,11 @@
             z-index: -10;
         }
     </style>
-    <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <div class="entry-modal" id="entry-modal">
-        <p>Create or Join Meeting</p>
-        <input id="room-input" class="room-input" placeholder="Enter Room ID">
-        <div>
-            <button onclick="createRoom()">Create Room</button>
-            <button onclick="joinRoom()">Join Room</button>
-        </div>
-    </div>
+<body onload="">
     <div class="meet-area">
-        <!-- Remote Video Element-->
         <video id="remote-video"></video>
-
-        <!-- Local Video Element-->
         <video id="local-video"></video>
         <div class="controls">
             <div class="control microphone"><i class="fas fa-microphone"></i></div>
@@ -116,22 +104,17 @@
 <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 
 <script>
-    const PRE = "DELTA"
-    const SUF = "MEET"
+    const PRE = "PAPER"
+    const SUF = "LESS"
     var room_id;
     var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
     var local_stream;
     function createRoom(){
-        console.log("Creating Room")
-        let room = document.getElementById("room-input").value;
-        if(room == " " || room == "")   {
-            alert("Please enter room number")
-            return;
-        }
+        let room = localStorage.getItem('room_id');
         room_id = PRE+room+SUF;
         let peer = new Peer(room_id)
         peer.on('open', (id)=>{
-            hideModal()
+            
             getUserMedia({video: true, audio: true}, (stream)=>{
                 local_stream = stream;
                 setLocalStream(local_stream)
@@ -161,19 +144,10 @@
         video.play();
     }
 
-    function hideModal(){
-        document.getElementById("entry-modal").hidden = true
-    }
-
     function joinRoom(){
         console.log("Joining Room")
-        let room = document.getElementById("room-input").value;
-        if(room == " " || room == "")   {
-            alert("Please enter room number")
-            return;
-        }
+        let room = localStorage.getItem('room_id');
         room_id = PRE+room+SUF;
-        hideModal()
         let peer = new Peer()
         peer.on('open', (id)=>{
             console.log("Connected with Id: "+id)

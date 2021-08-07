@@ -150,3 +150,7 @@ $(".end-chat-message").click(() => {
   $(".chat-appointment-chat").addClass("d-none")
   $(".payment-appointment-chat").addClass("d-none")
 })
+
+$(".start-appointment-call-schudule").click(() => {
+  $(".call-acs").toggleClass("d-none")
+})
