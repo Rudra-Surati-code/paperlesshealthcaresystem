@@ -89,7 +89,7 @@ const submit = () => {
                 } else if (localStorage.getItem("who") == "Imagine Center") {
                     location.replace("imaginecenter.html")
                 } else if (localStorage.getItem("who") == "Laboratory") {
-                    location.replace("laboratory.html")
+                    location.replace("labotatory.html")
                 } else if(localStorage.getItem("who") == "Medical Center") {
                     location.replace("medicalcenter.html")
                 } else {
