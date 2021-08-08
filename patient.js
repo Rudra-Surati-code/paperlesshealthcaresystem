@@ -154,3 +154,11 @@ $(".end-chat-message").click(() => {
 $(".start-appointment-call-schudule").click(() => {
   $(".call-acs").toggleClass("d-none")
 })
+
+$(".userlogo").click(() => {
+  $(".logout").toggleClass("d-none")
+  $(".logout-btn").click(() => {
+    localStorage.clear()
+    location.replace("index.html")
+  })
+})

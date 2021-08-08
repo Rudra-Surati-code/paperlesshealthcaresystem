@@ -84,3 +84,11 @@ $(".doctor-type-input-button").click(function() {
     localStorage.setItem("Doctor Specialist", $(".doctor-type-input").val())
     location.reload()
 })  
+
+$(".userlogo").click(() => {
+  $(".logout").toggleClass("d-none")
+  $(".logout-btn").click(() => {
+    localStorage.clear()
+    location.replace("index.html")
+  })
+})

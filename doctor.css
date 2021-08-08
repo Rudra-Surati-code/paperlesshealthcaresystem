@@ -206,3 +206,17 @@ body {
   flex-direction: column;
   overflow: hidden;
 }
+
+.logout {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
