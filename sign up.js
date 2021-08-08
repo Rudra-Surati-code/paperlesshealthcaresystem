@@ -50,7 +50,6 @@ const procress = () => {
 }
 
 const submit = () => {
-    alert(document.querySelector("#email").value.replaceAll("@", "adh").replaceAll(".", "dot"))
     var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
 	var letters = /^[A-Za-z]+$/;
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;

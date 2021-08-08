@@ -1,67 +1,87 @@
-var preloader = document.getElementById("body");
-
 var firebaseConfig = {
-    apiKey: "AIzaSyBB9q3c68b3NpODrzh2Y5iVrh17ngIupfo",
-    authDomain: "paper-less-health-care-s-31077.firebaseapp.com",
-    databaseURL: "https://paper-less-health-care-s-31077-default-rtdb.firebaseio.com",
-    projectId: "paper-less-health-care-s-31077",
-    storageBucket: "paper-less-health-care-s-31077.appspot.com",
-    messagingSenderId: "543851857318",
-    appId: "1:543851857318:web:d975ccb433f7f18ad77b67",
-    measurementId: "G-8Y3NK2TGFQ"
+  apiKey: "AIzaSyBRJebbIvB4gELwrfq0_XjAG6OejgXraww",
+  authDomain: "paper-less-9ab8d.firebaseapp.com",
+  databaseURL: "https://paper-less-9ab8d-default-rtdb.firebaseio.com",
+  projectId: "paper-less-9ab8d",
+  storageBucket: "paper-less-9ab8d.appspot.com",
+  messagingSenderId: "849779728570",
+  appId: "1:849779728570:web:2354acabbb54c91df0a283",
+  measurementId: "G-Z1M5DRX6J4"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
-function loading() {
-    preloader.style.display = "none";
-    getData();
-}
+$(document).ready(function() {
+  $(".loader").css('display', "none")
+  $(".username").html(localStorage.getItem("name"));
+  if(localStorage.getItem("Doctor Specialist") == null) {
+      console.log()
+  } else {
+      $(".doctor-type").css('display', "none");
+  }
 
-function logout() {
-    localStorage.clear();
-    window.location = "index.html";
-}
+  $(".userlogo").html(localStorage.getItem("name")[0])
+  // 
 
-function getData() {
-  firebase.database().ref("patient/").child("/").on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
-      document.getElementById("LaboratoryName").innerHTML = `These are the Reports and others things for ${childData.name}`;
-    });
-});
-firebase.database().ref("doctor/").child("prescriptionLaboratory").on('value', gotData);
-}
+  $(".home").click(function() {
+      $(".home").addClass("active");
+      $(".calenadar").removeClass("active");
+      $(".plus-square").removeClass("active");
+      $(".phone").removeClass("active");
+    
+      // 
 
-function gotData(data) {
-    document.getElementById("laboratoryDName").innerHTML = data.val().pl;
-}
+      $(".home-section").removeClass("d-none");
+      $(".payment-section").addClass("d-none");
+      $(".new-prescription").addClass("d-none");
+      $(".call").addClass("d-none")
+    })
+    
+    $(".calenadar").click(function() {
+      $(".home").removeClass("active");
+      $(".calenadar").addClass("active");
+      $(".plus-square").removeClass("active");
+      $(".phone").removeClass("active");
+    
+      // 
 
-function uploadLaboratoryReport() 
-{
-  const input = document.getElementById("inputFile");
+      $(".home-section").addClass("d-none");
+      $(".payment-section").removeClass("d-none");
+      $(".new-prescription").addClass("d-none");
+      $(".call").addClass("d-none")
+    })
+    
+    $(".plus-square").click(function() {
+      $(".home").removeClass("active");
+      $(".calenadar").removeClass("active");
+      $(".plus-square").addClass("active");
+      $(".phone").removeClass("active");
+    
+      // 
 
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+      $(".home-section").addClass("d-none");
+      $(".payment-section").addClass("d-none");
+      $(".new-prescription").removeClass("d-none");
+      $(".call").addClass("d-none")
+    })
+    
+    $(".phone").click(function() {
+      $(".home").removeClass("active");
+      $(".calenadar").removeClass("active");
+      $(".plus-square").removeClass("active");
+      $(".phone").addClass("active");
+    
+      // 
 
-        reader.onload = function (e) {
-            firebase.database().ref("laboratatory/").child("laboratatoryReport").set({
-                laboratatoryReport : reader.result
-            })
-        }
+      $(".home-section").addClass("d-none");
+      $(".paymeb-section").addClass("d-none");
+      $(".new-prescription").addClass("d-none");
+      $(".call").removeClass("d-none")
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+    })
+})
 
-function sendLaboratatoryReport() {
-    document.getElementById("laboratoryReport").classList.remove("d-none");
-    firebase.database().ref("laboratatory/").child("/").on('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-          var childData = childSnapshot.val();
-          document.getElementById("imgShow").src = `${childData.laboratatoryReport}`;
-        });
-      });
-    window.location = "#laboratoryReport";
-}
+$(".doctor-type-input-button").click(function() {
+  localStorage.setItem("Doctor Specialist", $(".doctor-type-input").val())
+  location.reload()
+})
