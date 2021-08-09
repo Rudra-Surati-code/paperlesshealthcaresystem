@@ -65,7 +65,7 @@ $(document).ready(function() {
       $(".call").addClass("d-none")
     })
     
-    $(".phone").click(function() {
+    $(".phone").click(() => {
       $(".home").removeClass("active");
       $(".calenadar").removeClass("active");
       $(".plus-square").removeClass("active");
@@ -81,15 +81,16 @@ $(document).ready(function() {
     })
 })
 
-$(".doctor-type-input-button").click(function() {
+$(".doctor-type-input-button").click(() => {
   localStorage.setItem("Doctor Specialist", $(".doctor-type-input").val())
   location.reload()
 })
 
 $(".userlogo").click(() => {
   $(".logout").toggleClass("d-none")
-  $(".logout-btn").click(() => {
+})
+
+$(".logout-btn").click(() => {
     localStorage.clear()
     location.replace("index.html")
   })
-})

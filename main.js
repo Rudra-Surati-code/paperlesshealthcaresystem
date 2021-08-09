@@ -58,7 +58,7 @@ function submit() {
                         } else if (data.who == "Imagine Center") {
                             location.replace("imaginecenter.html")
                         } else if (data.who == "Laboratory") {
-                            location.replace("laboratatory.html")
+                            location.replace("labotatory.html")
                         } else if(data.who == "Medical Center") {
                             location.replace("medicalcenter.html")
                         } else {
